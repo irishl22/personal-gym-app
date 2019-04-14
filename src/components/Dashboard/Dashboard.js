@@ -18,6 +18,10 @@ class Dashboard extends Component {
   }
 }
 
-const mapState = (reduxState) => reduxState
+function mapStateToProps(reduxStoreState) {
+  return {
+      user: reduxStoreState.user
+  }
+}
 
-export default connect(mapState, {getData})(Dashboard)
+export default connect(mapStateToProps, {getData})(Dashboard)

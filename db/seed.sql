@@ -4,7 +4,7 @@ CREATE TABLE account (
 	account_last_name varchar(80) NOT NULL,
 	account_email varchar(80) NOT NULL,
 	account_hash TEXT NOT NULL,
-	account_isAdmin BOOLEAN NOT NULL,
+	account_isAdmin BOOLEAN,
 	account_company_name varchar(100),
 	account_company_logo varchar(550)
 )

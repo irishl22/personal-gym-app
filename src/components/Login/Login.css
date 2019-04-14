@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #A63D40;
+    background-size: cover;
+}
+
+.content {
+    width: 44rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 25rem;
+    width: 27rem;
+    background: #E2DED3;
+    padding-left: 3rem
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+    width: 17rem;
+    background: #2A3D45;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: rgba(42, 61, 69, .85);
+    font-size: 1.5rem;
+}
+
+.login h2 {
+    color: #E2DED3;
+}
