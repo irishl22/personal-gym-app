@@ -5,7 +5,7 @@ export const Button = styled.button`
   border: ${props => props.primary ? ".1rem solid #E2DED3" : ""}; 
 
   font-size: 1.1rem;
-  padding: 0.18em 1.2rem;
+  padding: 0.18em 1.4rem;
   margin-top: 1rem;
   border-radius: 3px;
   color: #E2DED3;

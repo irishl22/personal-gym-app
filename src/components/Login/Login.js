@@ -12,7 +12,7 @@ export default class Login extends Component {
       last: '', 
       email: '',
       password: '',
-      // isAdmin: false, 
+      isAdmin: false, 
       company: '', 
       logo: ''
     }
@@ -25,8 +25,7 @@ export default class Login extends Component {
     })
   }
 
-  async register(e) {
-    e.preventDefault()
+  async register() {
     const { first, last, email, password, company, logo } = this.state
     const res = await axios.post('/auth/register', { first, last, email, password, company, logo })
     if (res.data.loggedIn) this.props.history.push('/dashboard')
@@ -43,8 +42,11 @@ async login() {
   render() {
     return (
       <div className="body">
+      <div className="logo-box">
+        <h5>TRAINER PORT</h5>
+      </div>
         <div className="content">
-          <form className="register-form" onSubmit={() => this.register()}>
+          <form className="register-form" >
             <h2>SIGN UP</h2>
             <Input type="text" name="first" placeholder="First Name" value={this.state.first} onChange={this.handleChange}/>
 
@@ -57,16 +59,15 @@ async login() {
             <Input type="text" name="company" placeholder="Company Name" value={this.state.company} onChange={this.handleChange}/>
 
             <Input type="text" name="logo" placeholder="Company Logo" value={this.state.logo} onChange={this.handleChange}/>
-            <input type="submit" value="Register" />
+
+            {/* <input type="checkbox" name="isAdmin" value={this.state.isAdmin} onChange={() => this.setState({isAdmin: !this.state.isAdmin}) } /> */}
+
+            <Button onClick={() => this.register()}>Register</Button>
           </form>  
           <div className="login">
           <h2>Login</h2>
             <Input secondary type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
-
             <Input secondary type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-
-            {/* <Input secondary type="checkbox" name="isAdmin" value={this.state.isAdmin} onChange={() => this.setState({isAdmin: !this.state.isAdmin}) } /> */}
-
             <Button primary onClick={() => this.login()}>Login</Button>
           </div>
         </div>

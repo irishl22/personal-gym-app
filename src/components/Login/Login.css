@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou');
 
 * {
     box-sizing: border-box;
@@ -12,7 +13,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #A63D40;
+    background-image: url('meghan-holmes-779221-unsplash.jpg');
+    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(32, 32, 32, 0.5)), url('meghan-holmes-779221-unsplash.jpg');
     background-size: cover;
 }
 
@@ -30,7 +32,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 25rem;
-    width: 27rem;
+    width: 25rem;
     background: #E2DED3;
     padding-left: 3rem
 }
@@ -41,17 +43,35 @@
     justify-content: center;
     align-items: center;
     height: 25rem;
-    width: 17rem;
+    width: 19rem;
     background: #2A3D45;
 }
 
 h2 {
     margin-bottom: 1rem;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: rgba(42, 61, 69, .85);
+    color: rgba(42, 61, 69, .89);
     font-size: 1.5rem;
 }
 
 .login h2 {
     color: #E2DED3;
+}
+
+.logo-box {
+    height: 5rem;
+    width: 15rem;
+    background: #A63D40;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+}
+
+.logo-box h5 {
+    padding: 1.6rem;
+    font-size: 1.5rem;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    color: rgba(226, 222, 211, .85);
+    letter-spacing: .3rem;
+    text-shadow: .14rem .14rem rgba(42, 61, 69, .75);
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Input = styled.input`
-    width: ${props => props.secondary ? "9.4rem" : "15rem"};
+    width: ${props => props.secondary ? "9.9rem" : "17rem"};
 
     padding: 4px;
     font-size: 12px;
