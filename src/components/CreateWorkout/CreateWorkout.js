@@ -6,8 +6,7 @@ export default class CreateWorkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      style: '',
-      time: 0
+      
     }
   }
 
@@ -18,16 +17,12 @@ export default class CreateWorkout extends Component {
     })
   }
 
-  createWorkout() {
-
-  }
+  
 
   render() {
     return (
       <div>
-        <input type="text" name="style" placeholder="Workout Type" value={this.state.style} onChange={this.handleChange}/>
-        <input type="number" name="time" placeholder="Workout Time" value={this.state.time} onChange={this.handleChange}/>
-        <button onClick={() => this.createWorkout()}>Go!</button>
+       
       </div>
     )
   }

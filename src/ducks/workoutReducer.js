@@ -25,8 +25,7 @@ export function getTodaysWorkout() {
     }
 }
 
-export function createWorkout() {
-    const { style, time } = this.state
+export function createWorkout(style, time) {
     let data = axios.post('/api/user-workout', { style, time }).then(res => res.data)
     return {
         type: CREATE_WORKOUT,
