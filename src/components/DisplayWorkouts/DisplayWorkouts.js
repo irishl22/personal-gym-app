@@ -1,13 +1,12 @@
-// import React from 'react'
+import React from 'react'
+// import './DisplayWorkouts.css'
 
-// export default function DisplayWorkouts(props) {
-//   const workout = props.workouts.map((item, index) => {
-//     return <p key={index}>{item}</p>;
-//   });
-//   return (
-//     <div>
-//       {workout}
-//     </div>
-//   );
-// }
+export default function DisplayWorkouts(props) {
+  return (
+    <div className="workout-container">
+      {props.workout.move_name}
+      
+    </div>
+  );
+}
 
