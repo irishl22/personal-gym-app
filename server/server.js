@@ -33,6 +33,7 @@ app.get('/logout', authCtrl.logout)
 
 // Dashboard endpoints
 app.get('/api/user-workouts', workoutCtrl.readWorkouts)
+app.get('/api/todays-workout', workoutCtrl.getTodaysWorkout)
 app.post('/api/user-workout', workoutCtrl.createWorkout)
 app.put('/api/user-workout/:id', workoutCtrl.updateWorkout)
 app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)

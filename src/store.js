@@ -6,7 +6,7 @@ import workoutReducer from './ducks/workoutReducer'
 
 const rootReducer = combineReducers({ 
     user: userReducer,
-    workout: workoutReducer
+    workouts: workoutReducer
 })
 
 export default createStore(rootReducer, applyMiddleware(promiseMiddleware))

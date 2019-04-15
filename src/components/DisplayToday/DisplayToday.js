@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
+// import './DisplayToday.css'
 
-export  default class DisplayToday extends Component {
-  render() {
-    return (
-      <div>
-        DisplayToday
-      </div>
-    )
-  }
+export default function DisplayToday(props) {
+  return (
+    <div className="workout-container">
+      {props.workout.move_name}
+    </div>
+  );
 }
+
+
+
 
 
