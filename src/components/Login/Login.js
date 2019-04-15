@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './Login.css'
+// import './Login.css'
 import { Button } from './../StyledComponents/Buttons'
 import { Input } from './../StyledComponents/Inputs'
 
@@ -14,7 +14,9 @@ export default class Login extends Component {
       password: '',
       isAdmin: false, 
       company: '', 
-      logo: ''
+      logo: '',
+      loginEmail: '',
+      loginPassword: ''
     }
   }
 
@@ -34,8 +36,8 @@ export default class Login extends Component {
 }
 
 async login() {
-    const { email, password } = this.state
-    const res = await axios.post('/auth/login', { email, password })
+    const { loginEmail, loginPassword } = this.state
+    const res = await axios.post('/auth/login', { loginEmail, loginPassword })
     if (res.data.loggedIn) this.props.history.push('/dashboard')
     else alert('Login failed')
 }
@@ -43,7 +45,7 @@ async login() {
     return (
       <div className="body">
       <div className="logo-box">
-        <h5>TRAINER PORT</h5>
+        {/* <h5>TRAINER PORT</h5> */}
       </div>
         <div className="content">
           <form className="register-form" >
@@ -66,8 +68,8 @@ async login() {
           </form>  
           <div className="login">
           <h2>Login</h2>
-            <Input secondary type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
-            <Input secondary type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+            <Input secondary type="text" name="loginEmail" placeholder="Email" value={this.state.loginEmail} onChange={this.handleChange}/>
+            <Input secondary type="text" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleChange}/>
             <Button primary onClick={() => this.login()}>Login</Button>
           </div>
         </div>

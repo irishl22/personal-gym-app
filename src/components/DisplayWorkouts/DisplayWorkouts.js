@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+// import React from 'react'
 
-export  default class DisplayWorkouts extends Component {
-  render() {
-    return (
-      <div>
-        DisplayWorkouts
-      </div>
-    )
-  }
-}
-
+// export default function DisplayWorkouts(props) {
+//   const workout = props.workouts.map((item, index) => {
+//     return <p key={index}>{item}</p>;
+//   });
+//   return (
+//     <div>
+//       {workout}
+//     </div>
+//   );
+// }
 

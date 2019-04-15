@@ -45,13 +45,13 @@ module.exports = {
         })
     },
     async login(req, res) {
-        const { email, password } = req.body;
+        const { loginEmail, loginPassword } = req.body;
         const db = req.app.get('db');
-        const accountArr = await db.find_account_by_email([email])
+        const accountArr = await db.find_account_by_email([loginEmail])
         if(!accountArr[0]) {
             return res.status(200).send({message: 'Account Not Found'})
         }
-        const result = bcrypt.compareSync(password, accountArr[0].account_hash)
+        const result = bcrypt.compareSync(loginPassword, accountArr[0].account_hash)
         if(!result) {
             return res.status(401).send({message: 'Password Incorrect'})
         }
@@ -69,6 +69,10 @@ module.exports = {
             loggedIn: true
         })
     },
+    logout(req, res) {
+        req.session.destroy();
+        res.redirect('http://localhost:3000')
+      },
     userData(req, res) {
         if(req.session.user) res.status(200).send(req.session.user)
         else res.status(401).send('Please Login')

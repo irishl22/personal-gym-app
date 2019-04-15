@@ -10,13 +10,13 @@ CREATE TABLE account (
 )
 
 CREATE TABLE display (
-	display_id PRIMARY KEY SERIAL,
+	display_id SERIAL PRIMARY KEY,
 	move_id INT NOT NULL,
 	workout_id INT NOT NULL
 );
 
 CREATE TABLE movement (
-	move_id PRIMARY KEY SERIAL,
+	move_id SERIAL PRIMARY KEY,
 	move_name varchar(100) NOT NULL,
 	move_style varchar(100) NOT NULL,
 	move_muscle_group varchar(100) NOT NULL,
@@ -29,10 +29,10 @@ CREATE TABLE movement (
 );
 
 CREATE TABLE workout (
-	workout_id PRIMARY KEY SERIAL,
+	workout_id SERIAL PRIMARY KEY,
 	workout_style varchar(80) NOT NULL,
 	workout_time INT NOT NULL,
-	workout_date DATE NOT NULL,
+	workout_date DATE NOT NULL DEFAULT CURRENT_DATE,
 	account_id INT NOT NULL
 );
 

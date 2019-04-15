@@ -29,13 +29,13 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/getAccounts', authCtrl.read)
 app.get('/auth/user-data', authCtrl.userData)
-// app.get('/logout', authCtrl.logout)
+app.get('/logout', authCtrl.logout)
 
-// // Dashboard endpoints
-// app.get('/api/user-workouts', workoutCtrl.readWorkouts)
-// app.post('/api/user-workout', workoutCtrl.createWorkout)
-// app.put('/api/user-workout/:id', workoutCtrl.updateWorkout)
-// app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)
+// Dashboard endpoints
+app.get('/api/user-workouts', workoutCtrl.readWorkouts)
+app.post('/api/user-workout', workoutCtrl.createWorkout)
+app.put('/api/user-workout/:id', workoutCtrl.updateWorkout)
+app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)
 
 // // Movement endpoints
 // app.get('/api/movements', movementsCtrl.readMovements)
