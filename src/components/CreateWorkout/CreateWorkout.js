@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getWorkouts } from './../../ducks/workoutReducer'
 import { Link } from 'react-router-dom'
 import Header from './../Header/Header'
+import SelectMovement from '../SelectMovement/SelectMovement';
 // import { Button } from './../StyledComponents/Buttons'
 // import { Input } from './../StyledComponents/Inputs'
 
@@ -10,7 +11,7 @@ class CreateWorkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 0
+      movements: []
     }
   }
 
@@ -18,18 +19,6 @@ class CreateWorkout extends Component {
     this.props.getWorkouts()
 }
 
-  handleChange = e => {
-    let { name, value } = e.target
-    this.setState({
-      [name]: value 
-    })
-  }
-
-  handleAdd = () => {
-    this.setState({
-      number: this.state.number + 1
-    })
-  }
   handleCancel = () => {
     this.setState({
       number: this.state.number - 1
@@ -47,28 +36,9 @@ class CreateWorkout extends Component {
             {workout.workout_time}
           </div>
           )})}
-          <button onClick={this.handleAdd}>Add Move</button>
-
-         {+this.state.number === 1 ? (
-           <div className="move-inputs">
-             <input />
-             <Link to='/selectmovement'><button>Select Move</button></Link>
-             <button onClick={this.handleCancel}>Cancel</button>
-           </div>
-         ) : +this.state.number === 2 ? (
-          <div className="move-inputs">
-            <input />
-            <Link to='/selectmovement'><button>Select Move</button></Link>
-            <button onClick={this.handleCancel}>Cancel</button>
-            <input />
-            <Link to='/selectmovement'><button>Select Move</button></Link>
-            <button onClick={this.handleCancel}>Cancel</button>
-          </div>
-          ) : (
-           <div></div>
-         )
-        } 
-        
+          <Link to='/selectmovement'>
+            <button>Add Move</button>
+          </Link>
        
       </div>
     )

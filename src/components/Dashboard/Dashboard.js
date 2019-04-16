@@ -5,6 +5,7 @@ import { getWorkouts, getTodaysWorkout, createWorkout } from './../../ducks/work
 import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
+// import './Dashboard.css'
 
 
 class Dashboard extends Component {
@@ -36,19 +37,25 @@ createWorkout() {
 }
 
   render() {
+    console.log(this.props.workouts.workouts[0])
     return (
       <div>
         <Header />
+        <div className="display-container">
+          {this.props.workouts.workouts.map((workout, i) => {
+          return <DisplayWorkouts key={workout} workout={workout}/>})}
+        </div> 
 
-        {this.props.workouts.workouts.map((workout, i) => {
-        return <DisplayWorkouts key={workout.display_id} workout={workout}/>})}
-
-        {this.props.workouts.todaysWorkout.map((workout, i) => {
-        return <DisplayToday key={workout.display_id} workout={workout}/>})}
-
-        <input type="text" name="style" placeholder="Workout Type" value={this.state.style} onChange={this.handleChange}/>
-        <input type="number" name="time" placeholder="Workout Time" value={this.state.time} onChange={this.handleChange}/>
-        <button onClick={() => this.createWorkout()}>Go!</button>
+        <div className="todays-container">
+          {this.props.workouts.todaysWorkout.map((workout, i) => {
+          return <DisplayToday key={workout.display[i]} workout={workout}/>})}
+        </div>
+       
+       <div className="create-box">
+          <input type="text" name="style" placeholder="Workout Type" value={this.state.style} onChange={this.handleChange}/>
+          <input type="number" name="time" placeholder="Workout Time" value={this.state.time} onChange={this.handleChange}/>
+          <button onClick={() => this.createWorkout()}>Go!</button>
+       </div>
 
       </div>
     )

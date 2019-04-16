@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.display-container {
+    height: 25rem;
+    width: 25rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.create-box {
+    height: 10rem;
+    width: 25rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.todays-container {
+    height: 25rem;
+    width: 25rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

@@ -1,1 +1,1 @@
-select move_name, move_muscle_group from movement
+select * from movement
