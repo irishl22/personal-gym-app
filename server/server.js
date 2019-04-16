@@ -38,8 +38,8 @@ app.post('/api/user-workout', workoutCtrl.createWorkout)
 app.put('/api/user-workout/:id', workoutCtrl.updateWorkout)
 app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)
 
-// // Movement endpoints
-// app.get('/api/movements', movementsCtrl.readMovements)
+// Movement endpoints
+app.get('/api/movements', movementsCtrl.readMovements)
 // app.post('/api/movement', movementsCtrl.createMovement)
 // app.delete('/api/movement:id', movementsCtrl.deleteMovement)
 

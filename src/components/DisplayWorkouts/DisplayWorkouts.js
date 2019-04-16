@@ -4,7 +4,7 @@ import React from 'react'
 export default function DisplayWorkouts(props) {
   return (
     <div className="workout-container">
-      {/* {props.workout.move_name} */}
+      {props.workout.move_name}
     </div>
   );
 }
