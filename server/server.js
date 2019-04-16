@@ -40,7 +40,7 @@ app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)
 
 // Movement endpoints
 app.get('/api/movements', movementsCtrl.readMovements)
-// app.post('/api/movement', movementsCtrl.createMovement)
+app.post('/api/insert-movement', movementsCtrl.insertMove)
 // app.delete('/api/movement:id', movementsCtrl.deleteMovement)
 
 

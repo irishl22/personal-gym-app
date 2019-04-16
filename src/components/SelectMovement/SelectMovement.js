@@ -32,7 +32,6 @@ class SelectMovement extends Component {
           <button key={movement.move_id} value={movement.move_name} onClick={this.handleSelect}>
             {movement.move_name}
           </button>
-         
          )
        })}
       </div>

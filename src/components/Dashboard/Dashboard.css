@@ -2,15 +2,25 @@
     box-sizing: border-box;
     margin: 0rem;
     padding: 0rem;
+    
+}
+
+.main-container {
+    position: relative;
 }
 
 .display-container {
-    height: 25rem;
+    height: 35rem;
     width: 25rem;
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 12rem;
+    left: 5rem;
+    overflow: scroll;
 }
 
 .create-box {
@@ -20,13 +30,19 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: absolute;
+    top: 30rem;
+    right: 5rem;
 }
 
 .todays-container {
-    height: 25rem;
+    height: 15rem;
     width: 25rem;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: absolute;
+    top: 12rem;
+    right: 5rem;
 }

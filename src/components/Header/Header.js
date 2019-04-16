@@ -13,10 +13,8 @@ class Header extends Component {
     return (
       <div className="container">
         <img src={logo} alt="Liber8 Logo" style={{width: 100}}/>
-        <span>Welcome, Trainer</span>
-        <h5>{first}</h5>
-        <h5>{last}</h5>
-        <h4>{company}</h4>
+        <h3>Welcome, Trainer {first} {last}</h3>
+      
         <a href='http://localhost:6140/logout'><Button>Logout</Button></a>
       </div>
     )

@@ -5,7 +5,7 @@ import { getWorkouts, getTodaysWorkout, createWorkout } from './../../ducks/work
 import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
-// import './Dashboard.css'
+import './Dashboard.css'
 
 
 class Dashboard extends Component {
@@ -37,9 +37,8 @@ createWorkout() {
 }
 
   render() {
-    console.log(this.props.workouts.workouts[0])
     return (
-      <div>
+      <div className="main-container">
         <Header />
         <div className="display-container">
           {this.props.workouts.workouts.map((workout, i) => {

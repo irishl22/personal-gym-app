@@ -1,5 +1,5 @@
 import React from 'react'
-// import './DisplayToday.css'
+import './DisplayToday.css'
 
 export default function DisplayToday(props) {
   return (
