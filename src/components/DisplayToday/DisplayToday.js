@@ -1,5 +1,7 @@
 import React from 'react'
 import './DisplayToday.css'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function DisplayToday(props) {
   return (
@@ -15,6 +17,10 @@ export default function DisplayToday(props) {
       <br/>
       <br/>
       <br/>
+      <Link to='/createworkout'>
+        <button>Edit Workout</button>
+      </Link>
+      <button>Delete Workout</button>
     </div> 
   );
 }

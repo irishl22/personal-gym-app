@@ -9,6 +9,7 @@ const initialState = {
 const GET_WORKOUTS = 'GET_WORKOUTS'
 const GET_TODAYS_WORKOUT = 'GET_TODAYS_WORKOUT'
 const CREATE_WORKOUT = 'CREATE_WORKOUT'
+const DELETE_WORKOUT = 'DELETE_WORKOUT'
 
 export function getWorkouts() {
     let data = axios.get('/api/user-workouts').then(res => res.data)
@@ -33,6 +34,14 @@ export function createWorkout(style, time) {
     }
   }
 
+  export function deleteWorkout(id) {
+      let data = axios.delete(`/api/user-workout/${id}`).then(res => res.data)
+      return {
+          type: DELETE_WORKOUT,
+          payload: data
+      }
+      }
+
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_WORKOUTS + '_PENDING':
@@ -43,6 +52,8 @@ export default function reducer(state = initialState, action) {
             return { ...state, todaysWorkout: action.payload, loading: false } 
         case CREATE_WORKOUT + '_FULFILLED':
             return {...state, workouts: action.payload} 
+        case DELETE_WORKOUT + '_FULFILLED':
+            return { todaysWorkout: '' } 
         default:
             return state;
     }

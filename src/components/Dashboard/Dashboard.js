@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getData } from './../../ducks/userReducer'
-import { getWorkouts, getTodaysWorkout, createWorkout } from './../../ducks/workoutReducer'
+import { getWorkouts, getTodaysWorkout, createWorkout, deleteWorkout } from './../../ducks/workoutReducer'
 import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
@@ -31,13 +31,17 @@ handleChange = e => {
   })
 }
 
-// need to insert into display table as well - otherwise won't show
 createWorkout() {
   let { style, time } = this.state
   createWorkout(style, time)
   this.setState({ style: '', time: ''})
   this.props.history.push('/createworkout')
 }
+
+handleDelete = (id) => {
+  
+}
+
 
 render() {
   console.log(this.props.workouts)
@@ -72,4 +76,4 @@ function mapStateToProps(reduxStoreState) {
   }
 }
 
-export default connect(mapStateToProps, {getData, getWorkouts, getTodaysWorkout})(Dashboard)
+export default connect(mapStateToProps, {getData, getWorkouts, getTodaysWorkout, deleteWorkout})(Dashboard)

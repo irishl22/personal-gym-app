@@ -24,6 +24,12 @@ module.exports = {
 
     },
     deleteWorkout(req, res) {
+        const { id } = req.params;
+        const db = req.app.get('db')
+        db.delete_workout([id])
+        
+        return res.send('workout deleted')
+
 
     }
 }
