@@ -6,4 +6,9 @@ insert into workout (
     $1,
     $2,
     $3
-)
+);
+
+insert into display (
+    workout_id
+) SELECT max(workout_id) FROM workout;
+

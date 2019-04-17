@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovements } from './../../ducks/movementReducer'
-import { getWorkouts } from './../../ducks/workoutReducer'
-import { Link } from 'react-router-dom'
+import { getWorkouts, getTodaysWorkout } from './../../ducks/workoutReducer'
+// import { Link } from 'react-router-dom'
 import Header from './../Header/Header'
-import SelectMovement from '../SelectMovement/SelectMovement';
+// import SelectMovement from '../SelectMovement/SelectMovement';
 import axios from 'axios'
 // import { Button } from './../StyledComponents/Buttons'
 // import { Input } from './../StyledComponents/Inputs'
@@ -14,14 +14,15 @@ class CreateWorkout extends Component {
     super(props);
     this.state = {
       movements: [],
-      workout_id: 8,
-      move_id: 0
+      move_id: 0,
+      workout_id: 0
     }
   }
 
   componentDidMount() {
     this.props.getMovements()
     this.props.getWorkouts()
+    this.props.getTodaysWorkout()
 }
 
   handleCancel = () => {
@@ -34,23 +35,33 @@ class CreateWorkout extends Component {
     this.setState({
       move_id: e.target.value
     })
+    console.log(this.state.move_id)
   }
-/// move_id coming out null even though console loggin shows its on state
+
+  //inserting move into display w/ workout_id
   handleAddMove = () => {
-    const { workout_id, move_id } = this.state
-    axios.post('/api/insert-movement', {workout_id, move_id})
+    const id = this.props.workouts.todaysWorkout.map(workout => {
+      return workout.id
+    })
+    const workout_id = id
+    
+    const { move_id } = this.state
+    axios.post('/api/insert-movement', { workout_id, move_id })
+    console.log(workout_id)
   }
 
   render() {
-    // console.log(this.props.movements.movements)
+    // console.log(this.props.workouts)
     return (
       <div>
-        {/* <Header /> */}
-        {this.props.workouts.workouts.map((workout, i) => {
+        <Header />
+        {this.props.workouts.todaysWorkout.map(workout => {
         return (
-          <div key={workout.display_id}>
-            {workout.style}
-            {workout.time}
+          <div key={workout.workout_id}>
+            {workout.workout_style}
+            {workout.workout_time}
+            {workout.workout_id}
+            
           </div>
           )})}
          
@@ -77,6 +88,6 @@ function mapStateToProps(reduxStoreState) {
   }
 }
 
-export default connect(mapStateToProps, {getMovements, getWorkouts})(CreateWorkout)
+export default connect(mapStateToProps, {getMovements, getWorkouts, getTodaysWorkout})(CreateWorkout)
 
 

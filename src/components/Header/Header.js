@@ -9,7 +9,7 @@ class Header extends Component {
      this.props.getData()
  }   
   render() {
-    const { first, last, company, logo } = this.props.user
+    const { first, last, logo } = this.props.user
     return (
       <div className="container">
         <img src={logo} alt="Liber8 Logo" style={{width: 100}}/>

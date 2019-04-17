@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovements } from './../../ducks/movementReducer'
-import axios from 'axios'
+import { getWorkouts } from './../../ducks/workoutReducer'
 
 class SelectMovement extends Component {
   constructor(props) {
@@ -12,8 +12,6 @@ class SelectMovement extends Component {
     }
   }
 
-  
-
   handleSelect = (e) => {
     this.setState({
       moves: [...this.state.moves, e.target.value]
@@ -22,6 +20,7 @@ class SelectMovement extends Component {
 
   componentDidMount() {
     this.props.getMovements()
+    this.props.getWorkouts()
   }
 
   render() {
@@ -47,6 +46,6 @@ function mapStateToProps(reduxStoreState) {
   }
 }
 
-export default connect(mapStateToProps, {getMovements})(SelectMovement)
+export default connect(mapStateToProps, {getMovements, getWorkouts})(SelectMovement)
 
 

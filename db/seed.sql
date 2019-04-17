@@ -24,8 +24,8 @@ CREATE TABLE movement (
 	move_equip_2 varchar(100),
 	move_equip_3 varchar(100),
 	move_location varchar(100) NOT NULL,
-	move_sets INT NOT NULL,
-	move_reps INT NOT NULL
+	move_sets INT,
+	move_reps INT
 );
 
 CREATE TABLE workout (

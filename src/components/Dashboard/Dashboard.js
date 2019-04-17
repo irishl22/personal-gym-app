@@ -6,6 +6,7 @@ import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
+import axios from 'axios'
 
 
 class Dashboard extends Component {
@@ -13,7 +14,8 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       style: '',
-      time: 0
+      time: 0,
+      workout_id: 0
   }
 }
   componentDidMount() {
@@ -29,25 +31,27 @@ handleChange = e => {
   })
 }
 
+// need to insert into display table as well - otherwise won't show
 createWorkout() {
   let { style, time } = this.state
-  createWorkout(style, time) 
+  createWorkout(style, time)
   this.setState({ style: '', time: ''})
   this.props.history.push('/createworkout')
 }
 
-  render() {
+render() {
+  console.log(this.props.workouts)
     return (
       <div className="main-container">
         <Header />
         <div className="display-container">
-          {this.props.workouts.workouts.map((workout, i) => {
-          return <DisplayWorkouts key={workout} workout={workout}/>})}
+          {this.props.workouts.workouts.map(workout => {
+          return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
         </div> 
 
         <div className="todays-container">
           {this.props.workouts.todaysWorkout.map((workout, i) => {
-          return <DisplayToday key={workout.display[i]} workout={workout}/>})}
+          return <DisplayToday key={workout.workout_id} workout={workout}/>})}
         </div>
        
        <div className="create-box">

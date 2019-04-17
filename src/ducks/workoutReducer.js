@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action) {
             case GET_TODAYS_WORKOUT + '_FULFILLED':
             return { ...state, todaysWorkout: action.payload, loading: false } 
         case CREATE_WORKOUT + '_FULFILLED':
-            return {...state, workouts: action.payload}        
+            return {...state, workouts: action.payload} 
         default:
             return state;
     }

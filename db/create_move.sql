@@ -8,7 +8,7 @@ insert into movement (
     move_location,
     move_sets,
     move_reps
-) values {
+) values (
     $1,
     $2,
     $3,
@@ -18,4 +18,4 @@ insert into movement (
     $7,
     $8,
     $9
-}
+)

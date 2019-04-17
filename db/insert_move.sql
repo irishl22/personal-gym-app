@@ -2,6 +2,6 @@ insert into display (
     workout_id,
     move_id
 ) values (
-    $1,
-    $2
+    (SELECT max(workout_id) FROM workout),
+    $1
 )
