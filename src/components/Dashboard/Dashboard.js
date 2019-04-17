@@ -38,9 +38,7 @@ createWorkout() {
   this.props.history.push('/createworkout')
 }
 
-handleDelete = (id) => {
-  
-}
+
 
 
 render() {

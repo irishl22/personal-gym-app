@@ -11,7 +11,7 @@ CREATE TABLE account (
 
 CREATE TABLE display (
 	display_id SERIAL PRIMARY KEY,
-	move_id INT NOT NULL,
+	move_id INT,
 	workout_id INT NOT NULL
 );
 
@@ -20,11 +20,11 @@ CREATE TABLE movement (
 	move_name varchar(100) NOT NULL,
 	move_style varchar(100) NOT NULL,
 	move_muscle_group_1 varchar(100) NOT NULL,
-	move_muscle_group_1 varchar(100),
+	move_muscle_group_2 varchar(100),
 	move_equip_1 varchar(100) NOT NULL,
 	move_equip_2 varchar(100),
 	move_equip_3 varchar(100),
-	move_equip_3 varchar(100),
+	move_equip_4 varchar(100),
 	move_location_1 varchar(100) NOT NULL,
 	move_location_2 varchar(100),
 	move_location_3 varchar(100),
