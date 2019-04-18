@@ -55,12 +55,14 @@ render() {
         <Header />
         <div className="boxes">
           <div className="display-container">
+          <h1>Recent Workouts</h1>
             {this.props.workouts.workouts.map(workout => {
             return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
           </div> 
 
           <div className="right-col">
             <div className="todays-container">
+            <h1>Todays Workout</h1>
               {this.props.workouts.todaysWorkout.map((workout, i) => {
               return <DisplayToday key={workout.workout_id} workout={workout}/>})}
             </div>

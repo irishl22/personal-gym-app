@@ -6,7 +6,8 @@ import { getWorkouts, getTodaysWorkout } from './../../ducks/workoutReducer'
 import Header from './../Header/Header'
 // import SelectMovement from '../SelectMovement/SelectMovement';
 import axios from 'axios'
-// import { Button } from './../StyledComponents/Buttons'
+import './CreateWorkout.css'
+import { MoveButton } from './../StyledComponents/Buttons'
 // import { Input } from './../StyledComponents/Inputs'
 
 class CreateWorkout extends Component {
@@ -53,7 +54,7 @@ class CreateWorkout extends Component {
   render() {
     // console.log(this.props.workouts)
     return (
-      <div>
+      <div className="create-workout-body">
         <Header />
         {this.props.workouts.todaysWorkout.map(workout => {
         return (
@@ -69,9 +70,9 @@ class CreateWorkout extends Component {
           
           {this.props.movements.movements.map(movement => {
          return (
-          <button key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
             {movement.move_name}
-          </button>
+          </MoveButton>
          )
        })}
        
