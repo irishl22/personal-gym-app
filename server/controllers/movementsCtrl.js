@@ -11,11 +11,9 @@ module.exports = {
         let response = await db.insert_move([move_id])
         return res.status(200).send(response)
     },
-    deleteMovements(req, res) {
-        
-    },
-
-    movementsByStyle(req, res) {
+    deleteMovement(req, res) {
         
     }
+        
+    
 }

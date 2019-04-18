@@ -6,8 +6,8 @@ import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
-import { Button } from './../StyledComponents/Buttons'
-import { Input } from './../StyledComponents/Inputs'
+import { Button, MoveButton } from './../StyledComponents/Buttons'
+import { InputTime } from './../StyledComponents/Inputs'
 
 
 class Dashboard extends Component {
@@ -15,7 +15,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       style: '',
-      time: 0,
+      time: 30,
       workout_id: 0
   }
 }
@@ -45,7 +45,6 @@ handleCheckBox(prop, val) {
     style: prop
   });
 }
-
 
 
 render() {
@@ -91,9 +90,9 @@ render() {
               </label>  
               <label className="workout-time">
                 <h4>Workout Time:</h4>
-                  <Input dash type="text" name="time" onChange={this.handleChange} value={this.state.time}/>
+                  <InputTime dash name="time" onChange={this.handleChange} value={this.state.time}/>
               </label>  
-                <Button go onClick={() => this.createWorkout()}>Go!</Button>
+                <MoveButton go onClick={() => this.createWorkout()}>Go!</MoveButton>
             </div>
           </div>    
         

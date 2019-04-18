@@ -14,9 +14,9 @@ export const Button = styled.button`
 `;
 
 export const MoveButton = styled.button`
-  font-size: .8rem;
+  font-size: ${props => props.go ? "1.1rem" : ".8rem"}
+  margin: ${props => props.go ? "0.4rem 0rem 0rem 0rem" : ".7rem"}
   padding: 0.16em .8rem;
-  margin: .7rem;
   border-radius: 3px;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: .07rem;
