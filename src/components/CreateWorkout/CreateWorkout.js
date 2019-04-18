@@ -18,7 +18,8 @@ class CreateWorkout extends Component {
       workout_id: 0,
       style: '',
       equip: '',
-      location: ''
+      location: '',
+      muscle: ''
     }
   }
 
@@ -36,22 +37,29 @@ class CreateWorkout extends Component {
     function filterS(arr, style) {
       return arr.filter(move => move.move_style === style)
     }
-    console.log(filterS(this.props.movements.movements, this.state.style))
+    console.log(this.state.style)
 }
   
-handleDropDown = (e) => {
+handleDropDownLocation = (e) => {
     this.setState({
       location: e.target.value
     });
  console.log(this.state.location)   
 }
 
-  handleSelect = (e) => {
+handleDropDownMuscle = (e) => {
+    this.setState({
+      muscle: e.target.value
+    });
+ console.log(this.state.muscle)   
+}
+
+handleSelect = (e) => {
     this.setState({
       move_id: e.target.value
     })
     console.log(this.state.move_id)
-  }
+}
 
   //inserting move into display w/ workout_id
   handleAddMove = () => {
@@ -83,24 +91,33 @@ handleDropDown = (e) => {
           <div className="workout-style-filter">
             <h4>Workout Style:</h4>
             <h5>Power</h5>
-                <input type="checkbox" name="time" onChange={e => this.handleCheckBox("Power", e.target.checked)} value={this.state.time}/>
+                <input type="checkbox" onChange={e => this.handleCheckBox("Power", e.target.checked)} value={this.state.style}/>
             <h5>Cardio</h5>
-                <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+                <input type="checkbox" onChange={e => this.handleCheckBox("Cardio", e.target.checked)} value={this.state.style}/>
             <h5>Strength</h5>
-                <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+                <input type="checkbox" onChange={e => this.handleCheckBox("Strength", e.target.checked)} value={this.state.style}/>
             <h5>Strength/Stability</h5>
-                <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+                <input type="checkbox" onChange={e => this.handleCheckBox("Strength/Stability", e.target.checked)} value={this.state.style}/>
             <h5>Stability/Mobility</h5>
-                <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+                <input type="checkbox" onChange={e => this.handleCheckBox("Stability/Mobility", e.target.checked)} value={this.state.style}/>
           </div>
           <div className="workout-muscle-filter">
             <h4>Muscle Group:</h4>
-            <select onChange={this.handleDropDown} value={this.state.location}>
-              <option></option>
+            <select onChange={this.handleDropDownMuscle} value={this.state.muscle}>
+              <option>Arms</option>
+              <option>Back</option>
+              <option>Bicep</option>
+              <option>Chest</option>
+              <option>Core</option>
+              <option>Full Body</option>
+              <option>Heart</option>
+              <option>Legs</option>
+              <option>Shoulders</option>
+            </select>  
           </div>
           <div className="workout-location-filter">
             <h4>Location:</h4>
-            <select onChange={this.handleDropDown} value={this.state.location}>
+            <select onChange={this.handleDropDownLocation} value={this.state.location}>
               <option>Hardwood</option>
               <option>Mat</option>
               <option>Outside</option>
