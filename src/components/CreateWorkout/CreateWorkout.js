@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMovements } from './../../ducks/movementReducer'
+import { getMovements, getMovementsByStyle } from './../../ducks/movementReducer'
 import { getWorkouts, getTodaysWorkout } from './../../ducks/workoutReducer'
 // import { Link } from 'react-router-dom'
 import Header from './../Header/Header'
@@ -8,7 +8,6 @@ import Header from './../Header/Header'
 import axios from 'axios'
 import './CreateWorkout.css'
 import { MoveButton } from './../StyledComponents/Buttons'
-// import { Input } from './../StyledComponents/Inputs'
 
 class CreateWorkout extends Component {
   constructor(props) {
@@ -24,13 +23,12 @@ class CreateWorkout extends Component {
     this.props.getMovements()
     this.props.getWorkouts()
     this.props.getTodaysWorkout()
-}
-
-  handleCancel = () => {
-    this.setState({
-      number: this.state.number - 1
-    })
   }
+  
+  handleCheckBox() {
+    
+    this.props.getMovementsByStyle()
+}
 
   handleSelect = (e) => {
     this.setState({
@@ -61,21 +59,35 @@ class CreateWorkout extends Component {
           <div key={workout.workout_id}>
             {workout.workout_style}
             {workout.workout_time}
-            {workout.workout_id}
-            
+            {workout.workout_id} 
           </div>
           )})}
          
-            <button onClick={this.handleAddMove}>Add Move</button>
+         <div className="workout-style-filter">
+          <h4>Workout Style:</h4>
+          <h5>Power</h5>
+              <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+          <h5>Cardio</h5>
+              <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+          <h5>Strength</h5>
+              <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+          <h5>Strength/Stability</h5>
+              <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+          <h5>Stability/Mobility</h5>
+              <input type="checkbox" name="time" onChange={this.handleChange} value={this.state.time}/>
+         </div>
           
-          {this.props.movements.movements.map(movement => {
-         return (
-          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
-            {movement.move_name}
-          </MoveButton>
-         )
-       })}
+          <div className="button-container">
+            {this.props.movements.movements.map(movement => {
+              return (
+                <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+              {movement.move_name}
+            </MoveButton>
+          )
+        })}
+          </div>
        
+        <MoveButton onClick={this.handleAddMove}>Add Move</MoveButton>
       </div>
     )
   }
@@ -89,6 +101,6 @@ function mapStateToProps(reduxStoreState) {
   }
 }
 
-export default connect(mapStateToProps, {getMovements, getWorkouts, getTodaysWorkout})(CreateWorkout)
+export default connect(mapStateToProps, {getMovements, getWorkouts, getTodaysWorkout, getMovementsByStyle})(CreateWorkout)
 
 

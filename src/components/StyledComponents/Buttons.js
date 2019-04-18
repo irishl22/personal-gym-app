@@ -20,5 +20,4 @@ export const MoveButton = styled.button`
   border-radius: 3px;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: .07rem;
-  
 `

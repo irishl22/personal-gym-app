@@ -13,5 +13,9 @@ module.exports = {
     },
     deleteMovements(req, res) {
         
+    },
+
+    movementsByStyle(req, res) {
+        
     }
 }

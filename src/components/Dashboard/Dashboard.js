@@ -44,7 +44,6 @@ handleCheckBox(prop, val) {
     [prop]: val,
     style: prop
   });
-  console.log(this.state.style)
 }
 
 

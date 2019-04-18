@@ -11,3 +11,7 @@
     background-image: linear-gradient(rgba(2, 24, 35, 0.9), rgba(2, 24, 35, 0.7)), url('victor-freitas-604847-unsplash.jpg');
     background-size: cover;
 }
+
+.workout-style-filter {
+    color: #fff;
+}
