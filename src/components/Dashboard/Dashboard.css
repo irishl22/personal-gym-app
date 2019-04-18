@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
 * {
     box-sizing: border-box;
     margin: 0rem;
@@ -7,42 +9,67 @@
 
 .main-container {
     position: relative;
+    height: 130vh;
+    background-image: url('victor-freitas-604847-unsplash.jpg');
+    background-image: linear-gradient(rgba(2, 24, 35, 0.9), rgba(2, 24, 35, 0.7)), url('victor-freitas-604847-unsplash.jpg');
+    background-size: cover;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 10rem;
+}
+
+.right-col {
+    height: 75vh;
+    width: 40%;
+    position: relative;
 }
 
 .display-container {
-    height: 35rem;
-    width: 25rem;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 12rem;
-    left: 5rem;
+    height: 75vh;
+    width: 45%;
     overflow: scroll;
-}
-
-.create-box {
-    height: 10rem;
-    width: 25rem;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: absolute;
-    top: 30rem;
-    right: 5rem;
+    background: rgb(206, 206, 206);
 }
 
 .todays-container {
-    height: 15rem;
-    width: 25rem;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: absolute;
-    top: 12rem;
-    right: 5rem;
+    height: 42vh;
+    background: rgb(206, 206, 206);
+    
 }
+
+.create-box {
+    background: rgb(219, 84, 97);
+    height: 37vh;
+    width: 100%;
+    position: absolute;
+    left: 1.2rem;
+    bottom: 0rem;
+    box-shadow: -5px -4px 5px rgba(2, 24, 35, .38);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 2rem 0rem 2rem 4rem;
+    font-family: 'Abel', sans-serif;
+    color: rgb(28, 48, 78);
+}
+
+.create-box input {
+    margin-right: .8rem;
+}
+.create-box input {
+    margin-right: .8rem;
+}
+
+.create-box h1 {
+    color: #fff;
+}
+
+.workout-time {
+    display: flex;
+    margin-top: 1rem;
+}
+

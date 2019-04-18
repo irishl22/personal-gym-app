@@ -6,7 +6,8 @@ import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
-import axios from 'axios'
+import { Button } from './../StyledComponents/Buttons'
+import { Input } from './../StyledComponents/Inputs'
 
 
 class Dashboard extends Component {
@@ -38,29 +39,64 @@ createWorkout() {
   this.props.history.push('/createworkout')
 }
 
+handleCheckBox(prop, val) {
+  this.setState({
+    [prop]: val,
+    style: prop
+  });
+  console.log(this.state.style)
+}
 
 
 
 render() {
-  console.log(this.props.workouts)
     return (
       <div className="main-container">
         <Header />
-        <div className="display-container">
-          {this.props.workouts.workouts.map(workout => {
-          return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
-        </div> 
+        <div className="boxes">
+          <div className="display-container">
+            {this.props.workouts.workouts.map(workout => {
+            return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
+          </div> 
 
-        <div className="todays-container">
-          {this.props.workouts.todaysWorkout.map((workout, i) => {
-          return <DisplayToday key={workout.workout_id} workout={workout}/>})}
+          <div className="right-col">
+            <div className="todays-container">
+              {this.props.workouts.todaysWorkout.map((workout, i) => {
+              return <DisplayToday key={workout.workout_id} workout={workout}/>})}
+            </div>
+            
+            <div className="create-box">
+            <h1>Create Workout</h1>
+            <h3>Choose Style:</h3>
+              <label>
+                <input type="radio" name="style" onClick={e => this.handleCheckBox("AMRAP", e.target.checked)} value={this.state.style}/>
+                AMRAP
+              </label>
+              <label>
+                <input type="radio" name="style" onClick={e => this.handleCheckBox("Interval", e.target.checked)} value={this.state.style}/>
+                Interval
+              </label>
+              <label>
+                  <input type="radio" name="style" onClick={e => this.handleCheckBox("RFT", e.target.checked)} value={this.state.style}/>
+                  RFT
+              </label>
+              <label>
+                  <input type="radio" name="style" onClick={e => this.handleCheckBox("Chipper", e.target.checked)} value={this.state.style}/>
+                  Chipper
+              </label>  
+              <label>
+                  <input type="radio" name="style" onClick={e => this.handleCheckBox("Partner", e.target.checked)} value={this.state.style}/>
+                  Partner
+              </label>  
+              <label className="workout-time">
+                <h4>Workout Time:</h4>
+                  <Input dash type="text" name="time" onChange={this.handleChange} value={this.state.time}/>
+              </label>  
+                <Button go onClick={() => this.createWorkout()}>Go!</Button>
+            </div>
+          </div>    
+        
         </div>
-       
-       <div className="create-box">
-          <input type="text" name="style" placeholder="Workout Type" value={this.state.style} onChange={this.handleChange}/>
-          <input type="number" name="time" placeholder="Workout Time" value={this.state.time} onChange={this.handleChange}/>
-          <button onClick={() => this.createWorkout()}>Go!</button>
-       </div>
 
       </div>
     )
