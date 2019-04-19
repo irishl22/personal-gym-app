@@ -6,7 +6,7 @@ import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
-import { Button, MoveButton } from './../StyledComponents/Buttons'
+import { MoveButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 

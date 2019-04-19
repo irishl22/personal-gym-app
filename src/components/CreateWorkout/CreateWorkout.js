@@ -29,14 +29,11 @@ class CreateWorkout extends Component {
     this.props.getTodaysWorkout()
   }
   
-  handleCheckBox(prop, val) {
+  handleRadio(prop, val) {
     this.setState({
       [prop]: val,
       style: prop
     });
-    function filterS(arr, style) {
-      return arr.filter(move => move.move_style === style)
-    }
     console.log(this.state.style)
 }
   
@@ -50,6 +47,12 @@ handleDropDownLocation = (e) => {
 handleDropDownMuscle = (e) => {
     this.setState({
       muscle: e.target.value
+    });
+ console.log(this.state.muscle)   
+}
+handleDropDownEquip = (e) => {
+    this.setState({
+      equip: e.target.value
     });
  console.log(this.state.muscle)   
 }
@@ -74,7 +77,73 @@ handleSelect = (e) => {
   }
 
   render() {
-    // console.log(this.props.workouts)
+    let allMoves = this.props.movements.movements
+    .filter(move => 
+      !this.state.style &&
+      !this.state.equip &&
+      !this.state.location &&
+      !this.state.muscle
+      )
+    .map(movement => {
+      return (
+        <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+        {movement.move_name}
+      </MoveButton>
+      )
+    })
+
+    // Filter by style
+    let styledMoves = this.props.movements.movements
+      .filter(movement => movement.move_style === this.state.style)
+      .map(movement => {
+        return (
+          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+        {movement.move_name}
+      </MoveButton>
+    )
+  })
+    // Filter by equip
+  let EquipMoves = this.props.movements.movements
+      .filter(move => 
+        move.move_equip_1 === this.state.equip ||
+        move.move_equip_2 === this.state.equip ||
+        move.move_equip_3 === this.state.equip ||
+        move.move_equip_4 === this.state.equip
+        )
+      .map(movement => {
+        return (
+          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+        {movement.move_name}
+      </MoveButton>
+    )
+  })
+    // Filter by location
+  let locationMoves = this.props.movements.movements
+      .filter(move => 
+        move.move_location_1 === this.state.location ||
+        move.move_location_2 === this.state.location
+        )
+      .map(movement => {
+        return (
+          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+        {movement.move_name}
+      </MoveButton>
+    )
+  })
+    // Filter by muscle group
+  let muscleMoves = this.props.movements.movements
+      .filter(move => 
+        move.move_muscle_group_1 === this.state.location || 
+        move.move_muscle_group_2 === this.state.location
+        )
+      .map(movement => {
+        return (
+          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+        {movement.move_name}
+      </MoveButton>
+    )
+  })
+
     return (
       <div className="page-container">
           <Header />
@@ -91,19 +160,42 @@ handleSelect = (e) => {
           <div className="workout-style-filter">
             <h4>Workout Style:</h4>
             <h5>Power</h5>
-                <input type="checkbox" onChange={e => this.handleCheckBox("Power", e.target.checked)} value={this.state.style}/>
+                <input type="radio" name="style" onChange={e => this.handleRadio("Power", e.target.checked)} value={this.state.style}/>
             <h5>Cardio</h5>
-                <input type="checkbox" onChange={e => this.handleCheckBox("Cardio", e.target.checked)} value={this.state.style}/>
+                <input type="radio" name="style" onChange={e => this.handleRadio("Cardio", e.target.checked)} value={this.state.style}/>
             <h5>Strength</h5>
-                <input type="checkbox" onChange={e => this.handleCheckBox("Strength", e.target.checked)} value={this.state.style}/>
+                <input type="radio" name="style" onChange={e => this.handleRadio("Strength", e.target.checked)} value={this.state.style}/>
             <h5>Strength/Stability</h5>
-                <input type="checkbox" onChange={e => this.handleCheckBox("Strength/Stability", e.target.checked)} value={this.state.style}/>
+                <input type="radio" name="style" onChange={e => this.handleRadio("Strength/Stability", e.target.checked)} value={this.state.style}/>
             <h5>Stability/Mobility</h5>
-                <input type="checkbox" onChange={e => this.handleCheckBox("Stability/Mobility", e.target.checked)} value={this.state.style}/>
+                <input type="radio" name="style" onChange={e => this.handleRadio("Stability/Mobility", e.target.checked)} value={this.state.style}/>
+          </div>
+          <div className="workout-style-equip">
+            <h4>Equipment Needed:</h4>
+            <select onChange={this.handleDropDownEquip} value={this.state.equip}>
+              <option>Select Equipment</option>
+              <option>Bands</option>
+              <option>Bar</option>
+              <option>Bench</option>
+              <option>Bosu</option>
+              <option>Box</option>
+              <option>Dumbbells</option>
+              <option>Jump Rope</option>
+              <option>Kettlebell</option>
+              <option>Mat</option>
+              <option>Med Ball</option>
+              <option>Plate</option>
+              <option>Rope</option>
+              <option>Sliders</option>
+              <option>Steppers</option>
+              <option>TRX</option>
+         
+            </select>  
           </div>
           <div className="workout-muscle-filter">
             <h4>Muscle Group:</h4>
             <select onChange={this.handleDropDownMuscle} value={this.state.muscle}>
+              <option>Select Muscle Group</option>
               <option>Arms</option>
               <option>Back</option>
               <option>Bicep</option>
@@ -118,8 +210,8 @@ handleSelect = (e) => {
           <div className="workout-location-filter">
             <h4>Location:</h4>
             <select onChange={this.handleDropDownLocation} value={this.state.location}>
+              <option>Select Location</option>
               <option>Hardwood</option>
-              <option>Mat</option>
               <option>Outside</option>
               <option>Rig</option>
               <option>Rubber</option>
@@ -128,13 +220,11 @@ handleSelect = (e) => {
           </div>
             
             <div className="button-container">
-              {this.props.movements.movements.map(movement => {
-                return (
-                  <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
-                {movement.move_name}
-              </MoveButton>
-            )
-          })}
+              {allMoves}
+              {styledMoves}
+              {EquipMoves}
+              {locationMoves}
+              {muscleMoves}
             </div>
         
           <MoveButton onClick={this.handleAddMove}>Add Move</MoveButton>
@@ -168,3 +258,35 @@ export default connect(mapStateToProps, {getMovements, getWorkouts, getTodaysWor
 //     )})}
 
 
+
+
+{/* <h5>Bands</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Bands", e.target.checked)} value={this.state.equip}/>
+            <h5>Bar</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Bar", e.target.checked)} value={this.state.equip}/>
+            <h5>Bench</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Bench", e.target.checked)} value={this.state.equip}/>
+            <h5>Bosu</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Bosu", e.target.checked)} value={this.state.equip}/>
+            <h5>Box</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Box", e.target.checked)} value={this.state.equip}/>
+            <h5>Dumbbells</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Dumbbells", e.target.checked)} value={this.state.equip}/>
+            <h5>Jump Rope</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Jump Rope", e.target.checked)} value={this.state.equip}/>
+            <h5>Kettlebell</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Kettlebell", e.target.checked)} value={this.state.equip}/>
+            <h5>Mat</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Mat", e.target.checked)} value={this.state.equip}/>
+            <h5>Med Ball</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Med Ball", e.target.checked)} value={this.state.equip}/>
+            <h5>Plate</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Plate", e.target.checked)} value={this.state.equip}/>
+            <h5>Rope</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Rope", e.target.checked)} value={this.state.equip}/>
+            <h5>Sliders</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Sliders", e.target.checked)} value={this.state.equip}/>
+            <h5>Steppers</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("Steppers", e.target.checked)} value={this.state.equip}/>
+            <h5>TRX</h5>
+                <input type="checkbox" name="equip" onChange={e => this.handleCheck("TRX", e.target.checked)} value={this.state.equip}/> */}
