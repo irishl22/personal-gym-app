@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getData } from './../../ducks/userReducer'
-import { Button } from './../StyledComponents/Buttons'
-import { Link } from 'react-router-dom'
 import './Header.css'
 
 class Header extends Component {
@@ -16,28 +14,28 @@ class Header extends Component {
      this.props.getData()
  }   
   render() {
-    const { first, last, logo } = this.props.user
+    const { first, logo } = this.props.user
     return (
       <div className="container">
         <img src={logo} alt="Liber8 Logo" style={{width: 100}}/>
-        <h3>Welcome, Trainer {first} {last}</h3>
+        <h3>Welcome, Trainer {first}</h3>
 
-     
-          <nav className="nav-bar">
             <div 
-              className={this.state.showMenu ? 'link-container slide' : 'no-show'}
+              className={this.state.showMenu ? 'top-menu slide' : 'no-show'}
               onClick={() => this.setState({showMenu: !this.state.showMenu})}
               >
-              <span>Home</span>
-              <span>Edit Profile</span>
-              <span>Add New Exercise</span>
-              <a href='http://localhost:6140/logout'><span>Logout</span></a>
+                <a href='http://localhost:3000/#/dashboard' className="closebtn">&times;</a>
+                <a href='http://localhost:3000/#/dashboard'>Home</a>
+                <a href='http://localhost:3000/#/'>Edit Profile</a>
+                <a href='http://localhost:3000/#/createworkout'>Add New Exercise</a>
+                <a href='http://localhost:6140/logout'><span>Logout</span></a>
             </div>
+
             <span
               className={this.state.showMenu ? 'no-show' : 'ham-menu'}
               onClick={() => this.setState({showMenu: !this.state.showMenu})}
               >&#9776;</span>
-        </nav>
+        
         
         {/* <a href='http://localhost:6140/logout'><Button>Logout</Button></a> */}
       </div>

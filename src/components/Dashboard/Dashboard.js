@@ -8,7 +8,6 @@ import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
 import { MoveButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
-import axios from 'axios';
 
 
 class Dashboard extends Component {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
 * {
     box-sizing: border-box;
     margin: 0rem;
@@ -17,10 +19,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: rgb(247, 245, 240);
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.workout-style-filter {
-    color: #fff;
+.workout-headline {
+    font-size: 1.8rem;
+    font-weight: 800;
+    height: 3.4rem;
 }
 
 .button-container {
@@ -38,17 +44,30 @@
     outline-offset: -15px;
 }
 
+/****FILTER STYLING ***/
+
+.filter-container {
+    height: 5.5rem;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(247, 245, 240);
+    font-family: 'Abel', sans-serif;
+}
+
 .workout-style-filter {
     display: flex;
+    flex-direction: column;
     flex-flow: row wrap;
     justify-content: center;
     padding: .5rem 0rem;
-    border-radius: .8rem;
+    margin: .5rem;
     width: 20rem;
-    height: 5rem;
-    background: #E2DED3;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.2rem
+    height: 3.5rem;
+    font-size: 1.2rem;
+    color: rgb(247, 245, 240);
+    font-family: 'Abel', sans-serif;
 }
 
 .workout-style-filter input {
@@ -58,3 +77,16 @@
 .workout-style-filter h5 {
     margin: .16rem .3rem;
 }
+ 
+
+.workout-equip-filter {
+    margin: 1.5rem;
+
+}
+
+
+.workout-location-filter {
+    margin: 1.5rem;
+    
+}
+
