@@ -8,6 +8,7 @@ import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
 import { MoveButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
+import axios from 'axios';
 
 
 class Dashboard extends Component {
@@ -32,14 +33,14 @@ handleChange = e => {
   })
 }
 
-createWorkout() {
+createWorkout = () => {
   let { style, time } = this.state
   createWorkout(style, time)
   this.setState({ style: '', time: ''})
   this.props.history.push('/createworkout')
 }
 
-handleCheckBox(prop, val) {
+handleCheckBox = (prop, val) => {
   this.setState({
     [prop]: val,
     style: prop
@@ -62,7 +63,7 @@ render() {
             <div className="todays-container">
             <h1>Todays Workout</h1>
               {this.props.workouts.todaysWorkout.map((workout, i) => {
-              return <DisplayToday key={workout.workout_id} workout={workout}/>})}
+              return <DisplayToday key={workout.workout_id} workout={workout} deleteWorkout={this.props.deleteWorkout}/>})}
             </div>
             
             <div className="create-box">

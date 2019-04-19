@@ -27,3 +27,42 @@ a {
     top: 0rem;
 }
 
+.no-show {
+    display: none;
+  }
+
+  .ham-menu {
+    color: white;
+    position: absolute;
+    top: 1.2rem;
+    right: 2.1rem;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+  }
+
+  
+  .link-container {
+    background: #912E31;
+    width: 180px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    position: absolute;
+    top: -200px;
+    right: 0; 
+    transition: .65s;
+  }
+  
+  .slide {
+    top: 0;
+  }
+
+  .link-container a {
+      position: absolute;
+      top: 5rem;
+      text-decoration: none;
+      color: #fff;
+  }
+

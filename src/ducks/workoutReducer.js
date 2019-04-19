@@ -40,7 +40,7 @@ export function createWorkout(style, time) {
           type: DELETE_WORKOUT,
           payload: data
       }
-      }
+    }
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -53,7 +53,7 @@ export default function reducer(state = initialState, action) {
         case CREATE_WORKOUT + '_FULFILLED':
             return {...state, workouts: action.payload} 
         case DELETE_WORKOUT + '_FULFILLED':
-            return { todaysWorkout: '' } 
+            return { ...state, todaysWorkout: [] } 
         default:
             return state;
     }

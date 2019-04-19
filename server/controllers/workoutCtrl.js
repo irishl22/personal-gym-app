@@ -30,6 +30,5 @@ module.exports = {
         
         return res.send('workout deleted')
 
-
     }
 }

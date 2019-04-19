@@ -16,7 +16,7 @@ export default function DisplayToday(props) {
       
       <div className="todays-buttons">
         <Button primary>Edit Workout</Button>
-        <Button go>Delete Workout</Button>
+        <Button go onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
       </div>
     </div> 
   );

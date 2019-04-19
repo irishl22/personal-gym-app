@@ -62,10 +62,6 @@ handleSelect = (e) => {
       move_id: e.target.value
     })
     console.log(this.state.move_id)
-}
-
-  //inserting move into display w/ workout_id
-  handleAddMove = () => {
     const id = this.props.workouts.todaysWorkout.map(workout => {
       return workout.id
     })
@@ -73,8 +69,19 @@ handleSelect = (e) => {
     
     const { move_id } = this.state
     axios.post('/api/insert-movement', { workout_id, move_id })
-    console.log(workout_id)
-  }
+}
+
+  //inserting move into display w/ workout_id
+  // handleAddMove = () => {
+  //   const id = this.props.workouts.todaysWorkout.map(workout => {
+  //     return workout.id
+  //   })
+  //   const workout_id = id
+    
+  //   const { move_id } = this.state
+  //   axios.post('/api/insert-movement', { workout_id, move_id })
+  //   console.log(workout_id)
+  // }
 
   render() {
     let allMoves = this.props.movements.movements
@@ -173,7 +180,7 @@ handleSelect = (e) => {
           <div className="workout-style-equip">
             <h4>Equipment Needed:</h4>
             <select onChange={this.handleDropDownEquip} value={this.state.equip}>
-              <option>Select Equipment</option>
+              <option value="">Select Equipment</option>
               <option>Bands</option>
               <option>Bar</option>
               <option>Bench</option>
@@ -195,7 +202,7 @@ handleSelect = (e) => {
           <div className="workout-muscle-filter">
             <h4>Muscle Group:</h4>
             <select onChange={this.handleDropDownMuscle} value={this.state.muscle}>
-              <option>Select Muscle Group</option>
+              <option value="">Select Muscle Group</option>
               <option>Arms</option>
               <option>Back</option>
               <option>Bicep</option>
@@ -210,7 +217,7 @@ handleSelect = (e) => {
           <div className="workout-location-filter">
             <h4>Location:</h4>
             <select onChange={this.handleDropDownLocation} value={this.state.location}>
-              <option>Select Location</option>
+              <option value="">Select Location</option>
               <option>Hardwood</option>
               <option>Outside</option>
               <option>Rig</option>
