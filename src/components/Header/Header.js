@@ -18,7 +18,7 @@ class Header extends Component {
     return (
       <div className="container">
         <img src={logo} alt="Liber8 Logo" style={{width: 100}}/>
-        <h3>Welcome, Trainer {first}</h3>
+        <h3>Welcome, {first}</h3>
 
             <div 
               className={this.state.showMenu ? 'top-menu slide' : 'no-show'}

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getData } from './../../ducks/userReducer'
-import { getWorkouts, getTodaysWorkout, createWorkout, deleteWorkout } from './../../ducks/workoutReducer'
+import { getWorkouts, getTodaysWorkout, createWorkout, deleteWorkout, updateWorkout } from './../../ducks/workoutReducer'
 import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
-import { MoveButton } from './../StyledComponents/Buttons'
+import { GoButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 
@@ -16,7 +16,8 @@ class Dashboard extends Component {
     this.state = {
       style: '',
       time: 30,
-      workout_id: 0
+      workout_id: 0,
+      editing: false
   }
 }
   componentDidMount() {
@@ -46,6 +47,17 @@ handleCheckBox = (prop, val) => {
   });
 }
 
+handleEditClick = () => {
+  this.setState({
+    editing: !this.state.editing
+  })
+}
+
+handleUpdate = () => {
+  this.setState({
+    editing: !this.state.editing
+  })
+}
 
 render() {
     return (
@@ -62,7 +74,19 @@ render() {
             <div className="todays-container">
             <h1>Todays Workout</h1>
               {this.props.workouts.todaysWorkout.map((workout, i) => {
-              return <DisplayToday key={workout.workout_id} workout={workout} deleteWorkout={this.props.deleteWorkout}/>})}
+              return <DisplayToday 
+                key={workout.workout_id} 
+                workout={workout} 
+                editing={this.state.editing} 
+                style={this.state.style}
+                time={this.state.time}
+                handleEditClick={this.handleEditClick} 
+                deleteWorkout={this.props.deleteWorkout}
+                updateWorkout={this.props.updateWorkout}
+                handleUpdate={this.handleUpdate}
+                handleCheckBox={this.handleCheckBox}
+                handleChange={this.handleChange}
+                />})}
             </div>
             
             <div className="create-box">
@@ -92,7 +116,7 @@ render() {
                 <h4>Workout Time:</h4>
                   <InputTime dash name="time" onChange={this.handleChange} value={this.state.time}/>
               </label>  
-                <MoveButton go onClick={() => this.createWorkout()}>Go!</MoveButton>
+                <GoButton go onClick={() => this.createWorkout()}>Go!</GoButton>
             </div>
           </div>    
         
@@ -110,4 +134,4 @@ function mapStateToProps(reduxStoreState) {
   }
 }
 
-export default connect(mapStateToProps, {getData, getWorkouts, getTodaysWorkout, deleteWorkout})(Dashboard)
+export default connect(mapStateToProps, {getData, getWorkouts, getTodaysWorkout, deleteWorkout, updateWorkout})(Dashboard)

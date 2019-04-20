@@ -45,7 +45,7 @@ async login() {
     return (
       <div className="body">
       <div className="logo-box">
-        {/* <h5>TRAINER PORT</h5> */}
+        <h5>TRAINER PORT</h5>
       </div>
         <div className="content">
           <form className="register-form" >

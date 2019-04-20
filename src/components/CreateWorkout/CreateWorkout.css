@@ -31,13 +31,14 @@
 
 .button-container {
     height: 25rem;
-    width: 75%;
+    width: 50%;
     background: rgba(166, 61, 64, .75);
     border-radius: .8rem;
     display: flex;
     flex-direction: column;
     flex-flow: row wrap;
     align-items: center;
+    overflow: scroll;
     justify-content: space-between;
     padding: 5rem 3rem;
     outline: 4px solid rgba(231, 219, 219, 0.54);

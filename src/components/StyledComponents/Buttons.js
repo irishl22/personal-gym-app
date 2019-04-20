@@ -13,11 +13,23 @@ export const Button = styled.button`
   letter-spacing: .07rem;
 `;
 
-export const MoveButton = styled.button`
-  font-size: ${props => props.go ? "1.1rem" : ".8rem"}
-  margin: ${props => props.go ? "0.4rem 0rem 0rem 0rem" : ".7rem"}
+export const GoButton = styled.button`
+  font-size: .8rem;
+  margin: 0.4rem 0rem 0rem 0rem;
   padding: 0.16em .8rem;
   border-radius: 3px;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: .07rem;
+  
+`
+
+export const MoveButton = styled.button `
+  font-size: .8rem;
+  margin: 0.4rem;
+  height: 7.5rem;
+  width: 7.5rem;
+  border-radius: 3px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: .07rem;
+
 `

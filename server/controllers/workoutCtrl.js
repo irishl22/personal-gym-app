@@ -20,8 +20,13 @@ module.exports = {
 
         return res.status(200).send(newWorkout)
     },
-    updateWorkout(req, res) {
+    updateWorkout: async (req, res) => {
+        const { style, time } = req.body
+        const { id } = req.params
+        const db = req.app.get('db')
+        const updatedWorkout = await db.edit_workout([style, time, id])
 
+        return res.status(200).send(updatedWorkout)
     },
     deleteWorkout(req, res) {
         const { id } = req.params;

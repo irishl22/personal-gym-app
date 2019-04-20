@@ -75,3 +75,9 @@ h2 {
     letter-spacing: .3rem;
     text-shadow: .14rem .14rem rgba(42, 61, 69, .75);
 }
+
+
+@media(max-width: 375px) {
+
+
+}

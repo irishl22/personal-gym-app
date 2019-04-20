@@ -194,6 +194,7 @@ handleSelect = (e) => {
                 <option>Sliders</option>
                 <option>Steppers</option>
                 <option>TRX</option>
+                <option>None</option>
           
               </select>  
             </div>
