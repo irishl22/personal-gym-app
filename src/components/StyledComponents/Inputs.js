@@ -24,3 +24,13 @@ export const InputTime = styled.input`
     text-align: center;
 `
 
+export const MoveInput = styled.input`
+    width: 12rem;
+    background-color: #fff;
+    margin: .36rem 0;
+    padding: 4px;
+    font-size: 12px;
+    border-style: none;
+    border-bottom: .04rem solid rgba(42, 61, 69, .8);
+`;
+

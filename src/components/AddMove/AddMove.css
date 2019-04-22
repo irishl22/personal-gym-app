@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Ropa+Sans');
+* {
+    box-sizing: border-box;
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.page-contain {
+    width: 100%;
+    height: 110vh;
+    background-image: url('victor-freitas-604847-unsplash.jpg');
+    background-image: linear-gradient(rgba(2, 24, 35, 0.9), rgba(2, 24, 35, 0.7)), url('victor-freitas-604847-unsplash.jpg');
+    background-size: cover;
+}
+
+.body-contain {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2rem;
+    font-family: 'Ropa Sans', sans-serif;
+    padding: 4.5rem 1rem;
+}

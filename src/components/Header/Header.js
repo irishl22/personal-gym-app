@@ -19,6 +19,7 @@ class Header extends Component {
       <div className="container">
        <div className="nav-links">
           <a href="http://localhost:3000/#/dashboard">Home</a>
+          <a href="http://localhost:3000/#/addmove">Add Exercise</a>
           <a href="http://localhost:6140/logout">Logout</a>
        </div>
         <div className="name-logo">

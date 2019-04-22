@@ -5,7 +5,6 @@ import Login from './components/Login/Login'
 import Dashboard from './components/Dashboard/Dashboard'
 import AddMove from './components/AddMove/AddMove'
 import CreateWorkout from './components/CreateWorkout/CreateWorkout'
-import SelectMovement from './components/SelectMovement/SelectMovement'
 
 
 class App extends Component {
@@ -17,7 +16,6 @@ class App extends Component {
           <Route path='/dashboard' component={Dashboard}></Route>
           <Route path='/addmove' component={AddMove}></Route>
           <Route path='/createworkout' component={CreateWorkout}></Route>
-          <Route path='/selectmovement' component={SelectMovement}></Route>
         </Switch>
       </HashRouter>
     );
