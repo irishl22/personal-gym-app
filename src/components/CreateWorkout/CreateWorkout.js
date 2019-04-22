@@ -152,15 +152,22 @@ handleSelect = (e) => {
       <div className="page-container">
           <Header />
           {chosenMoves}
-        <div className="create-workout-body">
+
+
+      <div className="main-body">
+       <div className="setup-container">
           {this.props.workouts.todaysWorkout.map(workout => {
           return (
             <div className="workout-headline" key={workout.workout_id}>
-              Today's Workout Build: {workout.workout_style} Time: 
-              {workout.workout_time}
+              Today's Workout <span>Build: {workout.workout_style} </span> <span className="time">Time: 
+              {workout.workout_time}</span>
             </div>
             )})}
 
+          </div>
+         
+            
+          <div className="button-container">
             <div className="workout-style-filter">
               <h4>Workout Style:</h4>
               <h5>Power</h5>
@@ -174,7 +181,8 @@ handleSelect = (e) => {
               <h5>Stability/Mobility</h5>
                   <input type="radio" name="style" onChange={e => this.handleRadio("Stability/Mobility", e.target.checked)} value={this.state.style}/>
             </div>
-          <div className="filter-container">
+          
+          <div className="menus-container">
             <div className="workout-equip-filter">
               <h4>Equipment Needed:</h4>
               <select onChange={this.handleDropDownEquip} value={this.state.equip}>
@@ -225,17 +233,18 @@ handleSelect = (e) => {
               </select>  
             </div>
           </div>
-            
-            <div className="button-container">
+            <div className="moves-container">
               {allMoves}
               {styledMoves}
               {EquipMoves}
               {locationMoves}
               {muscleMoves}
             </div>
+
+            <MoveButton onClick={this.handleAddMove}>Add Move</MoveButton>
+          </div>
+      </div>  
         
-          <MoveButton onClick={this.handleAddMove}>Add Move</MoveButton>
-        </div>
       </div>
       )
     }

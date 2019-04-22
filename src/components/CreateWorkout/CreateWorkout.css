@@ -14,47 +14,63 @@
     background-size: cover;
 }
 
-.create-workout-body {
+.main-body {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(247, 245, 240);
-    font-family: 'Open Sans Condensed', sans-serif;
+    justify-content: space-between;
+    background: #fff;
+
 }
 
 .workout-headline {
-    font-size: 1.8rem;
-    font-weight: 800;
+    color: rgb(61, 61, 60);
+    font-family: 'Open Sans Condensed', sans-serif;
     height: 3.4rem;
+    background: rgba(218, 218, 218, 0.863);
+    border: .07rem solid rgba(168, 166, 166, 0.7);
+    border-right: none;
+    display: flex;
+}
+
+.workout-headline span {
+    font-size: .8rem;
+    font-weight: 800;
+    margin: 0rem 1rem;
+    
+}
+
+.setup-container {
+    width: 55%;
+    height: 100rem;
 }
 
 .button-container {
-    height: 25rem;
-    width: 50%;
-    background: rgba(166, 61, 64, .75);
-    border-radius: .8rem;
+    height: 100rem;
+    width: 45%;
+    background: rgba(218, 218, 218, 0.863);
+    border: .1rem solid rgba(168, 166, 166, 0.663);
     display: flex;
     flex-direction: column;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: flex-end;
     overflow: scroll;
     justify-content: space-between;
-    padding: 5rem 3rem;
-    outline: 4px solid rgba(231, 219, 219, 0.54);
-    outline-offset: -15px;
+    padding: 2.5rem 3rem;
+    position: relative;
 }
 
 /****FILTER STYLING ***/
 
-.filter-container {
+.menus-container {
     height: 5.5rem;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(247, 245, 240);
+    color: rgb(48, 47, 46);
     font-family: 'Abel', sans-serif;
+    position: absolute;
+    top: 5rem;
+    right: 1.1rem;
 }
 
 .workout-style-filter {
@@ -62,13 +78,19 @@
     flex-direction: column;
     flex-flow: row wrap;
     justify-content: center;
-    padding: .5rem 0rem;
-    margin: .5rem;
-    width: 20rem;
+    width: 100%;
     height: 3.5rem;
     font-size: 1.2rem;
-    color: rgb(247, 245, 240);
+    color: rgb(48, 47, 46);
     font-family: 'Abel', sans-serif;
+    position: absolute;
+    top: 2rem;
+    right: .4rem;
+}
+
+.moves-container {
+    position: absolute;
+    top: 10rem;
 }
 
 .workout-style-filter input {
