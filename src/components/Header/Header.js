@@ -14,11 +14,10 @@ class Header extends Component {
     this.props.getData();
   }
   render() {
-    const { first, last, company, logo } = this.props.user;
+    const { first, last, logo } = this.props.user;
     return (
       <div className="container">
        <div className="nav-links">
-       <h5>{company}</h5>
           <a href="http://localhost:3000/#/dashboard">Home</a>
           <a href="http://localhost:6140/logout">Logout</a>
        </div>

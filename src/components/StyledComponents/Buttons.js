@@ -24,12 +24,14 @@ export const GoButton = styled.button`
 `
 
 export const MoveButton = styled.button `
-  font-size: .8rem;
-  margin: 0.4rem;
+  font-size: .7rem;
+  margin: 0.5rem;
   height: 7.5rem;
   width: 7.5rem;
   border-radius: 3px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Cabin Condensed', sans-serif;
   letter-spacing: .07rem;
-
+  background-image: url('');
+  text-transform: uppercase;
+  padding: .5rem;
 `

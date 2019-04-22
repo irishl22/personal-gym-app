@@ -91,7 +91,7 @@ render() {
             
             <div className="create-box">
             <h1>Create Workout</h1>
-            <h3>Choose Style:</h3>
+            <h3>Choose Format:</h3>
               <label>
                 <input type="radio" name="style" onClick={e => this.handleCheckBox("AMRAP", e.target.checked)} value={this.state.style}/>
                 AMRAP
