@@ -11,7 +11,7 @@ export const Button = styled.button`
   border-radius: 3px;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: .07rem;
-`;
+`
 
 export const GoButton = styled.button`
   font-size: .8rem;
@@ -22,16 +22,35 @@ export const GoButton = styled.button`
   letter-spacing: .07rem;
   
 `
-
 export const MoveButton = styled.button `
-  font-size: .7rem;
-  margin: 0.5rem;
-  height: 7.5rem;
-  width: 7.5rem;
+  font-size: .6rem;
+  margin: .54rem;
+  padding .2rem;
+  height: 5.5rem;
+  width: 6.5rem;
   border-radius: 3px;
   font-family: 'Cabin Condensed', sans-serif;
-  letter-spacing: .07rem;
   background-image: url('');
   text-transform: uppercase;
-  padding: .5rem;
 `
+export const ListButton = styled.button`
+  background: #25353C;
+  color: #E2DED3;
+  font-size: 1.1rem;
+  padding: 0.18em 1rem;
+  margin: 1rem 1rem;
+  border-radius: 3px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: .07rem;
+`;
+
+export const DoneButton = styled.button`
+  background: #30AF9B;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.28em 1rem;
+  margin: 1rem 2.5rem;
+  font-family: 'Ropa Sans', sans-serif;
+  border-radius: 1rem;
+  border: .07rem solid rgba(218, 218, 218, 0.863);
+`;

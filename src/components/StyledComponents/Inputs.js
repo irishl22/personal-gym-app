@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export const Input = styled.input`
     width: ${props => props.secondary ? "9.9rem" : "17rem"};
-    
     color: ${props => props.dash ? "#E2DED3" : ""};
     background-color: #E2DED3;
     margin: .36rem 0;

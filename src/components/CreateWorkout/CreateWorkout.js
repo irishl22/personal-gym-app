@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovements } from './../../ducks/movementReducer'
 import { getWorkouts, getTodaysWorkout } from './../../ducks/workoutReducer'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Header from './../Header/Header'
-// import SelectMovement from '../SelectMovement/SelectMovement';
 import axios from 'axios'
 import './CreateWorkout.css'
-import { MoveButton } from './../StyledComponents/Buttons'
+import { MoveButton, ListButton, DoneButton } from './../StyledComponents/Buttons'
+import { Input } from './../StyledComponents/Inputs'
 
 class CreateWorkout extends Component {
   constructor(props) {
@@ -79,11 +79,15 @@ handleSelect = (e) => {
   render() {
     let chosenMoves = this.state.movesList.map((move, i) => {
       return (
-        <div>
-          <p key={i}>{move}</p> <button onClick={this.handleAddMove}>Add Move</button>
+        <div className="moves-list">
+          <p key={i}>{move}</p> 
+         <Input secondary placeholder="Set(s)"/> x <Input secondary placeholder="Reps"/>
+         <ListButton onClick={this.handleAddMove}>Add Move</ListButton>
+          <hr/>
         </div>
       )
     }) 
+
 
     let allMoves = this.props.movements.movements
     .filter(move => 
@@ -105,7 +109,7 @@ handleSelect = (e) => {
       .filter(movement => movement.move_style === this.state.style)
       .map(movement => {
         return (
-          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
         {movement.move_name}
       </MoveButton>
     )
@@ -120,7 +124,7 @@ handleSelect = (e) => {
         )
       .map(movement => {
         return (
-          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
         {movement.move_name}
       </MoveButton>
     )
@@ -133,7 +137,7 @@ handleSelect = (e) => {
         )
       .map(movement => {
         return (
-          <MoveButton key={movement.move_id} value={movement.move_id} valueName={movement.move_name} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
         {movement.move_name}
       </MoveButton>
     )
@@ -146,7 +150,7 @@ handleSelect = (e) => {
         )
       .map(movement => {
         return (
-          <MoveButton key={movement.move_id} value={movement.move_id} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
         {movement.move_name}
       </MoveButton>
     )
@@ -165,14 +169,18 @@ handleSelect = (e) => {
               ${workout.workout_time}`}</span>
             </div>
             )})}
-            {chosenMoves}
+            <div>
+              {chosenMoves}
+              <Link to='/dashboard'>
+                <DoneButton>Done</DoneButton>
+              </Link>
+            </div>
 
           </div>
-         
-            
-          <div className="button-container">
-              <h1>Workout Style</h1>
-            <div className="workout-style-filter">
+
+      <div className="button-container">
+              <h1>Workout Style:</h1>
+        <div className="workout-style-filter">
               <h5>Power</h5>
                   <input type="radio" name="style" onChange={e => this.handleRadio("Power", e.target.checked)} value={this.state.style}/>
               <h5>Cardio</h5>
@@ -188,10 +196,9 @@ handleSelect = (e) => {
           <div className="menus-container">
             <div className="workout-equip-filter">
               <h4>Equipment Needed:</h4>
-              <div className="search_categories">
-                <div className="select">
+                <div className="box">
                   <select onChange={this.handleDropDownEquip} value={this.state.equip}>
-                    <option value="">Select Equipment</option>
+                    <option value="">Select Equipment &#9663;</option>
                     <option>Bands</option>
                     <option>Bar</option>
                     <option>Bench</option>
@@ -210,33 +217,36 @@ handleSelect = (e) => {
                     <option>None</option>
                   </select>  
                 </div>
-              </div>
             </div>
             <div className="workout-muscle-filter">
               <h4>Muscle Group:</h4>
-              <select onChange={this.handleDropDownMuscle} value={this.state.muscle}>
-                <option value="">Select Muscle Group</option>
-                <option>Arms</option>
-                <option>Back</option>
-                <option>Bicep</option>
-                <option>Chest</option>
-                <option>Core</option>
-                <option>Full Body</option>
-                <option>Heart</option>
-                <option>Legs</option>
-                <option>Shoulders</option>
-              </select>  
+              <div className="box muscle">
+                <select onChange={this.handleDropDownMuscle} value={this.state.muscle}>
+                  <option value="">Select Muscle Group &#9663;</option>
+                  <option>Arms</option>
+                  <option>Back</option>
+                  <option>Bicep</option>
+                  <option>Chest</option>
+                  <option>Core</option>
+                  <option>Full Body</option>
+                  <option>Heart</option>
+                  <option>Legs</option>
+                  <option>Shoulders</option>
+                </select>  
+              </div>
             </div>
             <div className="workout-location-filter">
               <h4>Location:</h4>
-              <select onChange={this.handleDropDownLocation} value={this.state.location}>
-                <option value="">Select Location</option>
-                <option>Hardwood</option>
-                <option>Outside</option>
-                <option>Rig</option>
-                <option>Rubber</option>
-                <option>Turf</option>
-              </select>  
+              <div className="box location">
+                <select onChange={this.handleDropDownLocation} value={this.state.location}>
+                  <option value="">Select Location  &#9663;</option>
+                  <option>Hardwood</option>
+                  <option>Outside</option>
+                  <option>Rig</option>
+                  <option>Rubber</option>
+                  <option>Turf</option>
+                </select>  
+              </div>
             </div>
           </div>
             <div className="moves-container">

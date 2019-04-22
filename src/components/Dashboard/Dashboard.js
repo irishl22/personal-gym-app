@@ -17,7 +17,9 @@ class Dashboard extends Component {
       style: '',
       time: 30,
       workout_id: 0,
-      editing: false
+      editing: false,
+      sets: 0,
+      reps: 0
   }
 }
   componentDidMount() {

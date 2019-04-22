@@ -6,12 +6,13 @@
 
 
 .name-logo {
-  height: 6rem;
+  height: 5.6rem;
   width: 20%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding-left: 1.7rem;
+  padding-bottom: .6rem;
 }
 
 .nav-links {
@@ -20,19 +21,22 @@
   display: flex; 
   justify-content: space-between;
   align-items: center;
-  background-color: #C4484C;
-  padding: 0rem 2rem 0rem 76rem;
+  padding: 0rem 2rem 0rem 80rem;
 }
 
 .nav-links a {
   text-decoration: none;
   font-family: 'Open Sans Condensed', sans-serif;
-  color: #E2DED3;
+  color: #fff;
   font-weight: 800;
 }
 
 .nav-links a:hover {
   color: rgba(36, 28, 28, 0.863);
+}
+
+.container {
+  border-bottom: 1px #fff solid;
 }
 
 .container h3 {
