@@ -6,18 +6,20 @@ import { InputTime } from './../StyledComponents/Inputs'
 export default function DisplayToday(props) {
   return !props.editing ? (
     <div className="">
-      <p>{props.workout.workout_style}</p>
-      <p>{props.workout.workout_time}</p>
-      <p>{props.workout.name[0]}</p>
-      <p>{props.workout.name[1]}</p>
-      <p>{props.workout.name[2]}</p>
-      <p>{props.workout.name[3]}</p>
-      <p>{props.workout.name[4]}</p>
-      <p>{props.workout.name[5]}</p>
+    <div className="workout-card">
+      <p>Workout Format: {props.workout.workout_style}</p>
+      <p>Workout Time: {props.workout.workout_time}</p>
+      <p>Exercise 1: {props.workout.name[0]}</p>
+      <p>Exercise 2: {props.workout.name[1]}</p>
+      <p>Exercise 3: {props.workout.name[2]}</p>
+      <p>Exercise 4: {props.workout.name[3]}</p>
+      <p>Exercise 5: {props.workout.name[4]}</p>
+      <p>Exercise 6: {props.workout.name[5]}</p>
+    </div>
       
       <div className="todays-buttons">
         <Button primary onClick={props.handleEditClick}>Edit Workout</Button>
-        <Button go onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
+        <Button  onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
       </div>
     </div> 
   ) : (
@@ -47,8 +49,6 @@ export default function DisplayToday(props) {
               <label className="workout-time">
                   <InputTime dash name="time" onChange={props.handleChange} value={props.time}/>
               </label> 
-              
-              <Button primary onClick={props.handleUpdate}>Update Style</Button>
     </div>
   )
 }

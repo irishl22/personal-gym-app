@@ -9,9 +9,7 @@ insert into movement (
     move_equip_4,
     move_location_1,
     move_location_2,
-    move_location_3,
-    move_sets,
-    move_reps
+    move_location_3
 ) values (
     $1,
     $2,
@@ -21,5 +19,7 @@ insert into movement (
     $6,
     $7,
     $8,
-    $9
+    $9,
+    $10,
+    $11
 )

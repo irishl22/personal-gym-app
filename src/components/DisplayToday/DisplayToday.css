@@ -4,5 +4,19 @@
     padding: 0rem;
 }
 
+.workout-card {
+    background: rgba(48, 175, 156, 0.767);
+    width: 80%;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: 800;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.todays-buttons button {
+    margin-right: 1.5rem;
+}
+
 
 

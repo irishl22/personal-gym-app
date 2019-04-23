@@ -14,13 +14,15 @@ export const Button = styled.button`
 `
 
 export const GoButton = styled.button`
-  font-size: .8rem;
-  margin: 0.4rem 0rem 0rem 0rem;
-  padding: 0.16em .8rem;
-  border-radius: 3px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  height: 3.4rem;
+  width: 9.9rem;
+  font-family: 'Abel', sans-serif;
   letter-spacing: .07rem;
-  
+  background: rgb(219, 84, 97);
+  border-style: none;
+  color: #fff;
 `
 export const MoveButton = styled.button `
   font-size: .6rem;
@@ -52,5 +54,5 @@ export const DoneButton = styled.button`
   margin: 1rem 2.5rem;
   font-family: 'Ropa Sans', sans-serif;
   border-radius: 1rem;
-  border: .07rem solid rgba(218, 218, 218, 0.863);
+  border: none;
 `;

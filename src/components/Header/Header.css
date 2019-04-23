@@ -6,13 +6,13 @@
 
 
 .name-logo {
-  height: 5.6rem;
+  height: 5rem;
   width: 20%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding-left: 1.7rem;
-  padding-bottom: .6rem;
+  padding-bottom: 1.3rem;
 }
 
 .nav-links {
@@ -21,7 +21,7 @@
   display: flex; 
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 2rem 0rem 77rem;
+  padding: 1rem 2rem 0rem 75rem;
 }
 
 .nav-links a {
@@ -32,7 +32,7 @@
 }
 
 .nav-links a:hover {
-  color: rgba(36, 28, 28, 0.863);
+  color: rgba(202, 199, 199, 0.863);
 }
 
 .container {

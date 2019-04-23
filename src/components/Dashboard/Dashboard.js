@@ -65,63 +65,63 @@ render() {
     return (
       <div className="main-container">
         <Header />
-        <div className="boxes">
-          <div className="display-container">
-          <h1>Recent Workouts</h1>
-            {this.props.workouts.workouts.map(workout => {
-            return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
-          </div> 
-
-          <div className="right-col">
-            <div className="todays-container">
-            <h1>Todays Workout</h1>
-              {this.props.workouts.todaysWorkout.map((workout, i) => {
-              return <DisplayToday 
-                key={workout.workout_id} 
-                workout={workout} 
-                editing={this.state.editing} 
-                style={this.state.style}
-                time={this.state.time}
-                handleEditClick={this.handleEditClick} 
-                deleteWorkout={this.props.deleteWorkout}
-                updateWorkout={this.props.updateWorkout}
-                handleUpdate={this.handleUpdate}
-                handleCheckBox={this.handleCheckBox}
-                handleChange={this.handleChange}
-                />})}
-            </div>
             
+        <div className="create-body">
+            <h1 className="create-headline">CREATE WORKOUT</h1>
+            <h4 className="create-sub-headline">Workout &#9679; Eat Well &#9679; Be Patient</h4>
             <div className="create-box">
-            <h1>Create Workout</h1>
             <h3>Choose Format:</h3>
               <label>
+                <h4>AMRAP</h4>
                 <input type="radio" name="style" onClick={e => this.handleCheckBox("AMRAP", e.target.checked)} value={this.state.style}/>
-                AMRAP
               </label>
               <label>
+                <h4>Interval</h4>
                 <input type="radio" name="style" onClick={e => this.handleCheckBox("Interval", e.target.checked)} value={this.state.style}/>
-                Interval
               </label>
               <label>
+                  <h4>RFT</h4>
                   <input type="radio" name="style" onClick={e => this.handleCheckBox("RFT", e.target.checked)} value={this.state.style}/>
-                  RFT
               </label>
               <label>
+                  <h4>Chipper</h4>
                   <input type="radio" name="style" onClick={e => this.handleCheckBox("Chipper", e.target.checked)} value={this.state.style}/>
-                  Chipper
               </label>  
               <label>
+                  <h4>Partner</h4>
                   <input type="radio" name="style" onClick={e => this.handleCheckBox("Partner", e.target.checked)} value={this.state.style}/>
-                  Partner
               </label>  
-              <label className="workout-time">
-                <h4>Workout Time:</h4>
-                  <InputTime dash name="time" onChange={this.handleChange} value={this.state.time}/>
-              </label>  
+              <div className="workout-time">
+                <h3>Workout Time: </h3><InputTime dash name="time" onChange={this.handleChange} value={this.state.time}/>
+                  
+              </div>  
                 <GoButton go onClick={() => this.createWorkout()}>Go!</GoButton>
             </div>
-          </div>    
-        
+        </div>
+        <div className="workouts">
+
+          <div className="display-container">
+          <h1>Recent Workouts</h1>
+          {this.props.workouts.workouts.map(workout => {
+            return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
+          </div> 
+            <div className="todays-container">
+            <h1>Todays Workout</h1>
+            {this.props.workouts.todaysWorkout.map((workout, i) => {
+              return <DisplayToday 
+              key={workout.workout_id} 
+              workout={workout} 
+              editing={this.state.editing} 
+              style={this.state.style}
+              time={this.state.time}
+              handleEditClick={this.handleEditClick} 
+              deleteWorkout={this.props.deleteWorkout}
+              updateWorkout={this.props.updateWorkout}
+              handleUpdate={this.handleUpdate}
+              handleCheckBox={this.handleCheckBox}
+              handleChange={this.handleChange}
+              />})}
+            </div>
         </div>
 
       </div>
