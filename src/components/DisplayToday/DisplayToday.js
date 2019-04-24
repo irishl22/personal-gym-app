@@ -13,24 +13,14 @@ export default function DisplayToday(props) {
       <p>Exercise 2: {props.workout.name[1]}</p>
       <p>Exercise 3: {props.workout.name[2]}</p>
       <p>Exercise 4: {props.workout.name[3]}</p>
-      <p>Exercise 5: {props.workout.name[4]}</p>
-      <p>Exercise 6: {props.workout.name[5]}</p>
+      {/* <p>Exercise 5: {props.workout.name[4]}</p>
+      <p>Exercise 6: {props.workout.name[5]}</p> */}
     </div>
       
       <div className="todays-buttons">
         <Button primary onClick={props.handleEditClick}>Edit Workout</Button>
         <Button  onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
       </div>
-
-      {/* <div className="text-message">
-        <h4>Send Workout</h4>
-              
-        <textarea value={props.text.textmessage} style={props.textArea}
-                  onTextChange={props.onTextChange()} />
-
-       <button onClick={props.sendText}>Send Workout</button>
-
-      </div> */}
     </div> 
   ) : (
     <div>

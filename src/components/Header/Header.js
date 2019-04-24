@@ -10,6 +10,11 @@ class Header extends Component {
       showMenu: false
     };
   }
+
+  hamMenu = () => {
+
+  }
+
   componentDidMount() {
     this.props.getData();
   }
@@ -17,11 +22,31 @@ class Header extends Component {
     const { first, last, url } = this.props.user;
     return (
       <div className="container">
+       
        <div className="nav-links">
-          <a href="http://localhost:3000/#/dashboard">Home</a>
-          <a href="http://localhost:3000/#/addmove">Add Exercise</a>
-          <a href="http://localhost:6140/logout">Logout</a>
-       </div>
+            <a href="http://localhost:3000/#/dashboard">Home</a>
+            <a href="http://localhost:3000/#/createworkout">Edit Workout</a>
+            <a href="http://localhost:3000/#/addmove">Add Exercise</a>
+            <a href="http://localhost:6140/logout">Logout</a>
+      </div>    
+        <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
+        
+          <div className="links-container">
+            <a href="http://localhost:3000/#/dashboard">Home</a>
+            <hr/>
+            <a href="http://localhost:3000/#/createworkout">Edit Workout</a>
+            <hr/>
+            <a href="http://localhost:3000/#/addmove">Add Exercise</a>
+            <hr/>
+            <a href="http://localhost:6140/logout">Logout</a>
+                
+            <div 
+              className="x-menu" 
+              onClick={() => this.setState({showMenu: !this.state.showMenu})}>X</div>
+
+          </div>
+        </div>
+
         <div className="name-logo">
           <img
             className="company-logo"
@@ -32,9 +57,14 @@ class Header extends Component {
           <h3>
             Welcome, {first} {last}
           </h3>
+          </div>
 
-          <p className="ham-menu">&#9776;</p>
-       </div>
+        <nav className="nav-bar">
+          <div 
+            className="ham-menu" 
+            onClick={() => this.setState({showMenu: !this.state.showMenu})}>&#9776;</div>
+        </nav>
+
       </div>
     );
   }

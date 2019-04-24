@@ -73,8 +73,6 @@ sendText = () => {
 
 render() {
   const { text } = this.state
-  
-
     return (
       <div className="main-container">
         <Header />

@@ -65,7 +65,6 @@ handleSelect = (e) => {
     
   }
   
-  // inserting move into display w/ workout_id
   handleAddMove = (e) => {
     const id = this.props.workouts.todaysWorkout.map(workout => {
       return workout.id
