@@ -20,7 +20,9 @@ class CreateWorkout extends Component {
       equip: '',
       location: '',
       muscle: '',
-      movesList: []
+      movesList: [],
+      sets: "",
+      reps: ""
     }
   }
 
@@ -55,6 +57,7 @@ handleDropDownEquip = (e) => {
     this.setState({
       equip: e.target.value
     });
+    console.log(this.state.equip)
 }
 
 handleSelect = (e) => {
@@ -70,22 +73,28 @@ handleSelect = (e) => {
       return workout.id
     })
     const workout_id = id
-    const { move_id } = this.state
-    axios.post('/api/insert-movement', { workout_id, move_id });
+    const { move_id, sets, reps } = this.state
+    axios.post('/api/insert-movement', { workout_id, move_id, sets, reps });
+  }
 
+  handleChange = e => {
+    let { name, value } = e.target
+    this.setState({
+      [name]: value 
+    })
   }
 
   render() {
+    console.log(this.state.reps)
     let chosenMoves = this.state.movesList.map((move, i) => {
       return (
         <div className="moves-list">
           <p key={i}>{move}</p> 
-         <Input secondary placeholder="Set(s)"/> x <Input secondary placeholder="Reps"/>
+         <Input secondary onChange={this.handleChange} name="sets" value={this.state.sets} placeholder="Set(s)"/> x <Input onChange={this.handleChange} name="reps" value={this.state.reps} secondary placeholder="Reps"/>
          <ListButton onClick={this.handleAddMove}>Add Move</ListButton>
         </div>
       )
     }) 
-
 
     let allMoves = this.props.movements.movements
     .filter(move => 
@@ -104,7 +113,8 @@ handleSelect = (e) => {
 
     // Filter by style
     let styledMoves = this.props.movements.movements
-      .filter(movement => movement.move_style === this.state.style)
+      .filter(movement => 
+          movement.move_style === this.state.style)
       .map(movement => {
         return (
           <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
@@ -248,13 +258,12 @@ handleSelect = (e) => {
             </div>
           </div>
             <div className="moves-container">
-              {allMoves}
+              {allMoves} 
               {styledMoves}
               {EquipMoves}
               {locationMoves}
               {muscleMoves}
             </div>
-
             
           </div>
       </div>  

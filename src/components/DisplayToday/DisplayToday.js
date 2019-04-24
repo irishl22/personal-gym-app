@@ -1,6 +1,6 @@
 import React from 'react'
 import './DisplayToday.css'
-import { Button } from './../StyledComponents/Buttons'
+import { Button, EDButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 export default function DisplayToday(props) {
@@ -9,17 +9,17 @@ export default function DisplayToday(props) {
     <div className="workout-card">
       <p>Workout Format: {props.workout.workout_style}</p>
       <p>Workout Time: {props.workout.workout_time}</p>
-      <p>Exercise 1: {props.workout.name[0]}</p>
-      <p>Exercise 2: {props.workout.name[1]}</p>
-      <p>Exercise 3: {props.workout.name[2]}</p>
-      <p>Exercise 4: {props.workout.name[3]}</p>
+      <p>Exercise 1: {props.workout.name[0]} <span>{props.workout.sets[0]} x {props.workout.reps[0]}</span></p>
+      <p>Exercise 2: {props.workout.name[1]} <span>{props.workout.sets[1]} x {props.workout.reps[1]}</span></p>
+      <p>Exercise 3: {props.workout.name[2]} <span>{props.workout.sets[2]} x {props.workout.reps[2]}</span></p>
+      <p>Exercise 4: {props.workout.name[3]} <span>{props.workout.sets[3]} x {props.workout.reps[3]}</span></p>
       {/* <p>Exercise 5: {props.workout.name[4]}</p>
       <p>Exercise 6: {props.workout.name[5]}</p> */}
     </div>
       
       <div className="todays-buttons">
-        <Button primary onClick={props.handleEditClick}>Edit Workout</Button>
-        <Button  onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
+        <EDButton onClick={props.handleEditClick}>Edit Workout</EDButton>
+        <EDButton onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</EDButton>
       </div>
     </div> 
   ) : (

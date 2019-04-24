@@ -6,9 +6,9 @@ module.exports = {
         return res.status(200).send(response)
     },
     insertMove: async (req, res) => {
-        const { move_id } = req.body
+        const { move_id, sets, reps } = req.body
         const db = req.app.get('db')
-        let response = await db.insert_move([move_id])
+        let response = await db.insert_move([move_id, sets, reps])
         return res.status(200).send(response)
     },
     addMovement: async (req, res) => {

@@ -65,3 +65,13 @@ export const UploadButton = styled.button`
   margin-left: .9rem;
   border: none;
 `;
+
+export const EDButton = styled.button`
+  background: rgba(255, 255, 255, 0.216);
+  color: rgba(255, 255, 255, 0.816);
+  font-size: 1.1rem;
+  padding: 0.28em 1.1rem;
+  margin-top: 1rem;
+  border-radius: 3px;
+  font-family: 'Ropa Sans', sans-serif;
+`
