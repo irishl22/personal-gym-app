@@ -6,12 +6,26 @@ const authCtrl = require('./controllers/authCtrl')
 const workoutCtrl = require('./controllers/workoutCtrl')
 const movementsCtrl = require('./controllers/movementsCtrl')
 const aws = require('aws-sdk');
+const cors = require('cors');
+const twilio = require('twilio')
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, accountSid, authToken, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION } = process.env;
+const client = new twilio(accountSid, authToken)
 
 const app = express();
 
-const { S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION } = process.env;
+app.use(cors())
+app.get('/send-text', (req, res) => {
+  const { textmessage } = req.query
+
+  client.messages
+  .create({
+     body: textmessage,
+     from: '+12052933798',
+     to: '+18582499201'
+   })
+  .then(message => console.log(message.sid));
+})
 
 app.get('/api/signs3', (req, res) => {
   aws.config = {

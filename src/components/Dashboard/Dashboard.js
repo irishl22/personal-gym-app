@@ -10,6 +10,7 @@ import { GoButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,8 @@ class Dashboard extends Component {
       workout_id: 0,
       editing: false,
       sets: 0,
-      reps: 0
+      reps: 0,
+      text: ''
   }
 }
   componentDidMount() {
@@ -61,7 +63,23 @@ handleUpdate = () => {
   })
 }
 
+sendText = () => {
+  const { text } = this.state
+  const text2 = this.props.workouts.todaysWorkout.map((workout, i) => {
+    return (
+      <p key={workout.workout_id}>{workout.name}</p>
+    )
+  })
+  // fetch(`http://localhost:6140/send-text?recipient=+18582499201&textmessage=${text}`)
+  // .catch(err => console.error(err))
+  console.log(text2)
+}
+
+
 render() {
+  const { text } = this.state
+  
+
     return (
       <div className="main-container">
         <Header />
@@ -122,6 +140,19 @@ render() {
               handleChange={this.handleChange}
               />})}
             </div>
+
+              <div className="text-message">
+              <h4>Send Workout</h4>
+              
+                <textarea value={text} 
+                  onChange={e => this.setState({ text: e.target.value })} />
+
+             
+
+                <button onClick={this.sendText}>Send Workout</button>
+
+              </div>
+
         </div>
 
       </div>

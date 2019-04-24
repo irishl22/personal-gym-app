@@ -21,6 +21,16 @@ export default function DisplayToday(props) {
         <Button primary onClick={props.handleEditClick}>Edit Workout</Button>
         <Button  onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</Button>
       </div>
+
+      {/* <div className="text-message">
+        <h4>Send Workout</h4>
+              
+        <textarea value={props.text.textmessage} style={props.textArea}
+                  onTextChange={props.onTextChange()} />
+
+       <button onClick={props.sendText}>Send Workout</button>
+
+      </div> */}
     </div> 
   ) : (
     <div>
