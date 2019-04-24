@@ -18,6 +18,10 @@
     background-repeat: no-repeat; 
 }
 
+.right-col {
+    width: 50%;
+}
+
 .display-container {
     height: 80vh;
     width: 50%;
@@ -28,8 +32,8 @@
 }
 
 .todays-container {
-    height: 68vh;
-    width: 50%;
+    height: 65vh;
+    width: 100%;
     font-family: 'Abel', sans-serif;
     border: 2px solid #E2DED3;;
     border-radius: .5rem;
@@ -37,6 +41,19 @@
     padding-left: 2rem;
     margin-left: 4rem;
     color: #fff;
+}
+
+.text-message {
+    height: 12.4vh;
+    width: 100%;
+    margin: 1.2rem 0rem 0rem 4rem;
+    padding-left: 2rem;
+    border: 2px solid #E2DED3;;
+    border-radius: .5rem;
+    background: rgba(45, 60, 66, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-body {
@@ -119,9 +136,6 @@
    align-items: center;
 }
 
-GoButton:hover {
-    background: rgba(0, 0, 0)
-}
 
 /**** DISPLAY WORKOUTS STYLING ****/
 .display-container h1,
@@ -130,7 +144,7 @@ GoButton:hover {
     color:#E2DED3;
     font-family: 'Abel', sans-serif;
     font-size: 2.2rem;
-    padding: 1rem 3rem 0rem 1.3rem;
+    padding: .5rem 3rem 0rem 1.3rem;
     margin: 1.4rem 0rem;
     background-color: #666666;
     -webkit-background-clip: text;
@@ -138,14 +152,19 @@ GoButton:hover {
     background-clip: text;    
 }
 
+/*********** TEXT MESSAGE STYLING *************/
 
-
-
+.text-message textarea {
+    width: 18rem;
+}
 
 @media(max-width: 375px) {
 
 .main-container {
-    height: 131.3rem;
+    height: 128rem;
+    background-image: url('edgar-chaparro-669210-unsplash.jpg');
+    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(32, 32, 32, 0.5)), url('edgar-chaparro-669210-unsplash.jpg');
+    background-position: center;
 }
 
 .create-headline {
@@ -158,6 +177,7 @@ GoButton:hover {
     flex-wrap: wrap;
     padding: 0rem 3.4rem;
     border-radius: .3rem;
+    margin-bottom: -5rem;
 }
 
 .create-box label {
@@ -179,13 +199,31 @@ GoButton:hover {
     height: 50rem;
     width: 90%;
     overflow: auto;
+    margin-left: .15rem;
 }
 
 .todays-container {
+    margin: .2rem 0rem 1rem .15rem;
+    padding-left: 2rem;
     width: 90%;
-    height: 30rem;
-    margin: 0rem;
-    margin-bottom: 2rem;
+}
+
+.right-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-message {
+    margin: .2rem 0rem 1rem .15rem;
+    padding-left: 2rem;
+    width: 90%;
+}
+
+.text-message textarea {
+    width: 8rem;
 }
 
 }

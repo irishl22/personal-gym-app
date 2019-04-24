@@ -6,7 +6,7 @@ import Header from './../Header/Header'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
-import { GoButton } from './../StyledComponents/Buttons'
+import { GoButton, DoneButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 
@@ -64,15 +64,10 @@ handleUpdate = () => {
 }
 
 sendText = () => {
-  const { text } = this.state
-  const text2 = this.props.workouts.todaysWorkout.map((workout, i) => {
-    return (
-      <p key={workout.workout_id}>{workout.name}</p>
-    )
-  })
-  // fetch(`http://localhost:6140/send-text?recipient=+18582499201&textmessage=${text}`)
-  // .catch(err => console.error(err))
-  console.log(text2)
+  const { text } = this.state 
+  fetch(`http://localhost:6140/send-text?recipient=+18582499201&textmessage=${text}`)
+  .catch(err => console.error(err))
+  
 }
 
 
@@ -123,6 +118,7 @@ render() {
           {this.props.workouts.workouts.map(workout => {
             return <DisplayWorkouts key={workout.workout_id} workout={workout}/>})}
           </div> 
+          <div className="right-col">
             <div className="todays-container">
             <h1>Todays Workout</h1>
             {this.props.workouts.todaysWorkout.map((workout, i) => {
@@ -141,17 +137,13 @@ render() {
               />})}
             </div>
 
-              <div className="text-message">
-              <h4>Send Workout</h4>
-              
+            <div className="text-message">
                 <textarea value={text} 
                   onChange={e => this.setState({ text: e.target.value })} />
+                <DoneButton onClick={this.sendText}>Text Workout</DoneButton>
+            </div>
 
-             
-
-                <button onClick={this.sendText}>Send Workout</button>
-
-              </div>
+          </div>
 
         </div>
 
