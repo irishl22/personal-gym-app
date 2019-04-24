@@ -4,7 +4,7 @@ const initialState = {
     first: '',
     last: '',
     company: '',
-    logo: ''
+    url: ''
 }
 
 const GET_DATA = 'GET_DATA'
@@ -20,8 +20,8 @@ export function getData() {
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_DATA + '_FULFILLED':
-            const { first, last, company, logo } = action.payload
-            return { first, last, company, logo } 
+            const { first, last, company, url } = action.payload
+            return { first, last, company, url } 
         default:
             return state;
     }

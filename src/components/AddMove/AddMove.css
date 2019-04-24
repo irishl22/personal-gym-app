@@ -54,7 +54,7 @@
     padding: 5rem 0rem;
 }
 
-button:hover {
+.inputs button:hover {
     background-color: rgba(16, 29, 35, 0.53);
     /* border: .1rem solid #fff; */
 }

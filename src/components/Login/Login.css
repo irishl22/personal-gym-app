@@ -80,6 +80,13 @@ h2 {
     margin: 0rem;
 }
 
+.image-upload {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    
+}
+
 
 @media(max-width: 375px) {
 
@@ -111,7 +118,6 @@ h2 {
         padding: 0.1rem;
         margin: .2rem;
     }
-    
 
     .logo-box {
         background: transparent;
@@ -119,9 +125,10 @@ h2 {
 
     .logo-box h5 {
         color: #30AF9B;
-        font-size: 2.4rem;
-        padding: .2rem 0rem .5rem .5rem;
-        margin-left: 3.6rem;
+        width: 20rem;
+        font-size: 2.7rem;
+        padding: .2rem 0rem 0rem;
+        margin-left: 3.3rem;
         text-shadow: .3rem .19rem .2rem rgba(43, 38, 38, 0.699);
     }
 
@@ -132,5 +139,3 @@ h2 {
     }
 
 }
-/* 
-edgar-chaparro-669210-unsplash.jpg */

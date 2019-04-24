@@ -12,7 +12,7 @@ module.exports = {
         })
     },
     register: async (req, res) => {
-        const { first, last, email, password, isAdmin, company, logo } = req.body
+        const { first, last, email, password, isAdmin, company, url } = req.body
         const db = req.app.get('db');
         const accountArr = await db.find_account_by_email([email]) 
         if(accountArr[0]) {
@@ -27,7 +27,7 @@ module.exports = {
             hash, 
             isAdmin, 
             company, 
-            logo
+            url
         ])
         req.session.user =  {
             id: newAccArr[0].account_id,
@@ -36,7 +36,7 @@ module.exports = {
             email: newAccArr[0].account_email, 
             isAdmin: newAccArr[0].account_isAdmin, 
             company: newAccArr[0].account_company_name, 
-            logo: newAccArr[0].account_company_logo 
+            url: newAccArr[0].account_company_logo 
         };
         res.status(200).send({
             message: 'logged in',
@@ -62,7 +62,7 @@ module.exports = {
             email: accountArr[0].account_email, 
             isAdmin: accountArr[0].account_isAdmin, 
             company: accountArr[0].account_company_name, 
-            logo: accountArr[0].account_company_logo 
+            url: accountArr[0].account_company_logo 
         }    
         res.status(200).send({
             message: 'Login Successful',

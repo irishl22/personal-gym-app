@@ -14,7 +14,7 @@ class Header extends Component {
     this.props.getData();
   }
   render() {
-    const { first, last, logo } = this.props.user;
+    const { first, last, url } = this.props.user;
     return (
       <div className="container">
        <div className="nav-links">
@@ -25,8 +25,8 @@ class Header extends Component {
         <div className="name-logo">
           <img
             className="company-logo"
-            src={logo}
-            alt="Liber8 Logo"
+            src={url}
+            alt="Company Logo"
             style={{ width: 50 }}
           />
           <h3>

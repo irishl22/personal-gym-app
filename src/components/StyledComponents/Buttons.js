@@ -56,3 +56,12 @@ export const DoneButton = styled.button`
   border-radius: 1rem;
   border: none;
 `;
+export const UploadButton = styled.button`
+  background: rgba(37, 53, 60, 0.895);
+  color: #E2DED3;
+  border-radius: .9rem;
+  font-size: .76em;
+  padding: 0.28em .5rem;
+  margin-left: .9rem;
+  border: none;
+`;
