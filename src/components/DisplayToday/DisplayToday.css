@@ -20,3 +20,12 @@
 
 
 
+@media(max-width: 375px) {
+    .todays-buttons button {
+        margin-bottom: .5rem;
+    }
+
+}
+
+
+

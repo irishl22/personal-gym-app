@@ -50,6 +50,35 @@ h4 {
   color: rgb(240, 239, 236);
 }
 
+.ham-menu {
+  display: none;
+}
+
+@media(max-width: 375px) { 
+  .nav-links {
+    display: none;
+  }
+
+  .ham-menu {
+    display: inline;
+    color: #fff;
+    font-size: 3rem;
+    position: absolute;
+    top: .3rem;
+    right: 1.2rem;
+  }
+
+  .name-logo {
+    height: 5rem;
+    width: 74%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 1.7rem;
+    padding-bottom: .4rem;
+  }
+
+}
 
 
 

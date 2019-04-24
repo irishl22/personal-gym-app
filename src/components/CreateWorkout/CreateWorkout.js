@@ -83,7 +83,6 @@ handleSelect = (e) => {
           <p key={i}>{move}</p> 
          <Input secondary placeholder="Set(s)"/> x <Input secondary placeholder="Reps"/>
          <ListButton onClick={this.handleAddMove}>Add Move</ListButton>
-          <hr/>
         </div>
       )
     }) 

@@ -58,3 +58,21 @@ button:hover {
     background-color: rgba(16, 29, 35, 0.53);
     /* border: .1rem solid #fff; */
 }
+
+
+@media(max-width: 375px) {
+    .input-container {
+        width: 80%;
+        height: 50rem;
+    }
+    
+    .inputs {
+        height: 42rem;
+        flex-wrap: nowrap;
+        padding: 0rem;
+    }
+
+    .page-contain {
+        height: 64rem;
+    }
+}

@@ -83,5 +83,54 @@ h2 {
 
 @media(max-width: 375px) {
 
+    .content {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    
+    .login {
+       height: 15rem;
+       width: 16rem;
+       border-radius: .5rem;
+       background: rgba(42, 61, 69, 0.815);
+    }
+    
+    .register-form {
+        height: 19rem;
+        width: 16rem;
+        border-radius: .5rem;
+        margin: 0rem 0rem 2rem 0rem;
+        padding: 0rem 1.9rem;
+        margin-top: 5rem;
+        background: rgba(226, 222, 211, 0.719);
+    }
+    
+    .register-form Input {
+        width: 11rem;
+        padding: 0.1rem;
+        margin: .2rem;
+    }
+    
+
+    .logo-box {
+        background: transparent;
+    }
+
+    .logo-box h5 {
+        color: #30AF9B;
+        font-size: 2.4rem;
+        padding: .2rem 0rem .5rem .5rem;
+        margin-left: 3.6rem;
+        text-shadow: .3rem .19rem .2rem rgba(43, 38, 38, 0.699);
+    }
+
+    .body {
+        background-image: url('edgar-chaparro-669210-unsplash.jpg');
+        background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(32, 32, 32, 0.5)), url('edgar-chaparro-669210-unsplash.jpg');
+        background-position: center bottom;
+    }
 
 }
+/* 
+edgar-chaparro-669210-unsplash.jpg */

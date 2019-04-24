@@ -32,6 +32,8 @@ class Header extends Component {
           <h3>
             Welcome, {first} {last}
           </h3>
+
+          <p className="ham-menu">&#9776;</p>
        </div>
       </div>
     );

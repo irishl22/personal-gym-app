@@ -22,3 +22,13 @@
     line-height: 2rem;
 }
 
+
+@media(max-width: 375px) {
+    .workout-container {
+        width: 80%;
+        margin: 0rem 0rem 2.15rem 3rem;
+        margin-left: 2.15rem;
+    }
+
+}
+

@@ -21,7 +21,7 @@
     height: 85vh;
     width: 50%;
     overflow: scroll;
-    border: 2px solid #E2DED3;;
+    border: 2px solid #E2DED3;
     border-radius: .5rem;
     background: rgba(45, 60, 66, 0.8);
 }
@@ -137,9 +137,47 @@ GoButton:hover {
 
 
 
-/**** TODAYS WORKOUT STYLING ****/
+
+@media(max-width: 375px) {
+
+.create-headline {
+    font-size: 2rem;
+}
+
+.create-box {
+    width: 18rem;
+    height: 17rem;
+    flex-wrap: wrap;
+    padding: 0rem 3.4rem;
+    border-radius: .3rem;
+
+}
+
+.create-box label {
+    border-right: none;
+}
+
+.create-box h3 {
+    padding: .3rem;
+}
+
+.workouts {
+    flex-direction: column-reverse;
+    padding: 3rem 0rem; 
+    align-items: center;
+   
+}
+
+.display-container {
+    width: 90%;
+    overflow: auto;
+}
 
 .todays-container {
-    
-    
+    width: 90%;
+    height: 30rem;
+    margin: 0rem;
+    margin-bottom: 2rem;
+}
+
 }

@@ -157,3 +157,73 @@ h4 {
   }
   
   
+  @media(max-width: 375px) {
+    .main-body {
+        flex-direction: column;
+    }
+
+    .setup-container {
+        width: 100%;
+        height: 30rem;
+    }
+
+    .workout-headline {
+        padding: 0.2rem;
+    }
+
+    .workout-headline h3 {
+        display: none;
+    }
+
+    .workout-headline span {
+        font-size: 1.2rem;
+        width: 14rem;
+        padding: .4rem 0rem;
+        text-align: center;
+    }
+
+    .button-container {
+        width: 100%;
+        padding: 2rem .2rem;
+        background: rgba(218, 218, 218, 0.59);
+    }
+
+    .workout-style-filter {
+       flex-wrap: wrap;
+        width: 90%;
+        height: 5rem;
+        padding-left: 2.4rem;
+    }
+    .button-container h1 {
+       font-size: 1.7rem;
+       margin-bottom: .3rem;
+       padding-left: 6.3rem;
+    }
+
+    .menus-container {
+        flex-direction: column;
+        height: 13rem;
+    }
+
+    .moves-list {
+      padding: 0rem;
+      font-size: 1rem;
+      margin: 0rem;
+    }
+   
+    .moves-list p {
+      margin: 0.5rem;
+    }
+
+    .moves-list input {
+        width: 2.9rem;
+        height: 1.7rem;
+    }
+    
+    .moves-list button {
+        font-size: .8rem;
+        width: 4.2rem;
+        padding: 0.2rem;
+    }
+
+  }
