@@ -29,6 +29,19 @@
     font-size: .9rem;
 }
 
+/************* EDIT STYLING **************/
+
+.editing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.editing input {
+    margin: .5rem;
+}
+
 @media(max-width: 375px) {
     .todays-buttons button {
         margin-bottom: .5rem;

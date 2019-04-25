@@ -65,7 +65,7 @@ handleUpdate = () => {
 
 sendText = () => {
   const { text } = this.state 
-  fetch(`http://localhost:6140/send-text?recipient=+18582499201&textmessage=${text}`)
+  fetch(`${process.env.REACT_APP_BACK}/send-text?recipient=+18582499201&textmessage=${text}`)
   .catch(err => console.error(err))
   
 }
@@ -75,8 +75,7 @@ render() {
   const { text } = this.state
     return (
       <div className="main-container">
-        <Header />
-            
+        <Header />            
         <div className="create-body">
             <h1 className="create-headline">CREATE WORKOUT</h1>
             <h4 className="create-sub-headline">Workout &#9679; Eat Well &#9679; Be Patient</h4>

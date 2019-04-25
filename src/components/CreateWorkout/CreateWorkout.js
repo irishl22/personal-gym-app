@@ -21,8 +21,8 @@ class CreateWorkout extends Component {
       location: '',
       muscle: '',
       movesList: [],
-      sets: "",
-      reps: ""
+      sets: 0,
+      reps: 0
     }
   }
 
@@ -65,16 +65,19 @@ handleSelect = (e) => {
       move_id: e.target.value
     })
     this.setState({movesList: [...this.state.movesList, e.target.name]})
-    
   }
   
-  handleAddMove = (e) => {
+  handleAddMove = () => {
     const id = this.props.workouts.todaysWorkout.map(workout => {
       return workout.id
     })
     const workout_id = id
     const { move_id, sets, reps } = this.state
     axios.post('/api/insert-movement', { workout_id, move_id, sets, reps });
+    this.setState({
+      sets: 0,
+      reps: 0
+    })
   }
 
   handleChange = e => {
@@ -85,7 +88,6 @@ handleSelect = (e) => {
   }
 
   render() {
-    console.log(this.state.reps)
     let chosenMoves = this.state.movesList.map((move, i) => {
       return (
         <div className="moves-list">
@@ -103,9 +105,9 @@ handleSelect = (e) => {
       !this.state.location &&
       !this.state.muscle
       )
-    .map(movement => {
+    .map((movement, i) => {
       return (
-          <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
+          <MoveButton key={movement.move_name} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
           {movement.move_name}
           </MoveButton>
       )

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getData } from "./../../ducks/userReducer";
 import "./Header.css";
+require('dotenv').config();
 
 class Header extends Component {
   constructor(props) {
@@ -24,21 +25,21 @@ class Header extends Component {
       <div className="container">
        
        <div className="nav-links">
-            <a href="http://localhost:3000/#/dashboard">Home</a>
-            <a href="http://localhost:3000/#/createworkout">Edit Workout</a>
-            <a href="http://localhost:3000/#/addmove">Add Exercise</a>
-            <a href="http://localhost:6140/logout">Logout</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
+            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
       </div>    
         <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
         
           <div className="links-container">
-            <a href="http://localhost:3000/#/dashboard">Home</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a>
             <hr/>
-            <a href="http://localhost:3000/#/createworkout">Edit Workout</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
             <hr/>
-            <a href="http://localhost:3000/#/addmove">Add Exercise</a>
+            <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
             <hr/>
-            <a href="http://localhost:6140/logout">Logout</a>
+            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
                 
             <div 
               className="x-menu" 

@@ -23,7 +23,7 @@ export default function DisplayToday(props) {
       </div>
     </div> 
   ) : (
-    <div>
+    <div className="editing">
       <label>
                 <input type="radio" name="style" onClick={e => props.handleCheckBox("AMRAP", e.target.checked)} value={props.style}/>
                 AMRAP
@@ -44,11 +44,14 @@ export default function DisplayToday(props) {
                   <input type="radio" name="style" onClick={e => props.handleCheckBox("Partner", e.target.checked)} value={props.style}/>
                   Partner
               </label> 
+              
+               
+              <label className="workout-time">
+                  Time: <InputTime dash name="time" onChange={props.handleChange} value={props.time}/>
+              </label> 
+
               <Button primary onClick={() => props.updateWorkout(props.style, props.time, props.workout.workout_id)}>Update Workout</Button>
 
-              <label className="workout-time">
-                  <InputTime dash name="time" onChange={props.handleChange} value={props.time}/>
-              </label> 
     </div>
   )
 }

@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
         case GET_MOVEMENTS + '_FULFILLED':
             return { ...state, movements: action.payload, loading: false }
         case ADD_MOVEMENT + '_FULFILLED':
-            return { ...state, movements: action.payload, loading: false }
+            return { ...state, movements: action.payload }
         default:
             return state        
     }

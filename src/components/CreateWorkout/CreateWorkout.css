@@ -155,8 +155,7 @@ h4 {
   .moves-list p {
       margin: 0rem 1.5rem;
   }
-  
-  
+
   @media(max-width: 375px) {
     .main-body {
         flex-direction: column;
