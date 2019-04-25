@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getData } from "./../../ducks/userReducer";
 import "./Header.css";
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 require('dotenv').config();
 
