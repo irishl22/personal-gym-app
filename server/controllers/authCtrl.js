@@ -14,7 +14,8 @@ module.exports = {
     register: async (req, res) => {
         const { first, last, email, password, isAdmin, company, url } = req.body
         const db = req.app.get('db');
-        const accountArr = await db.find_account_by_email([email]) 
+        const accountArr = await db.find_account_by_email([email])
+        console.log() 
         if(accountArr[0]) {
             return res.status(200).send({message: 'Email already in use'})
         }
@@ -38,11 +39,14 @@ module.exports = {
             company: newAccArr[0].account_company_name, 
             url: newAccArr[0].account_company_logo 
         };
-        res.status(200).send({
-            message: 'logged in',
-            userData: req.session.user,
-            loggedIn: true,
-        })
+        res.status(200).send('it worked')
+        console.log('after send reg')
+            
+        //     {
+        //     message: 'logged in',
+        //     userData: req.session.user,
+        //     loggedIn: true,
+        // })
     },
     async login(req, res) {
         const { loginEmail, loginPassword } = req.body;
@@ -71,7 +75,7 @@ module.exports = {
     },
     logout(req, res) {
         req.session.destroy();
-        res.redirect('http://localhost:3000')
+        res.redirect('/')
       },
     userData(req, res) {
         if(req.session.user) res.status(200).send(req.session.user)

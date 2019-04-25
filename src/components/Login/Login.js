@@ -83,14 +83,16 @@ export default class Login extends Component {
   async register() {
     const { first, last, email, password, company, url } = this.state
     const res = await axios.post('/auth/register', { first, last, email, password, company, url })
-    if (res.data.loggedIn) this.props.history.push('/dashboard')
-    else alert('Registration Failed')
+    console.log(res,8888)
+    // if (res.data.loggedIn) this.props.history.push('/dashboard')
+    // else alert('Registration Failed')
     
 }
 
   async login() {
       const { loginEmail, loginPassword } = this.state
       const res = await axios.post('/auth/login', { loginEmail, loginPassword })
+      console.log(res.data,5555)
       if (res.data.loggedIn) this.props.history.push('/dashboard')
       else alert('Login failed')
   }

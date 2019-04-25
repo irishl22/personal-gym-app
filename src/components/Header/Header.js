@@ -29,10 +29,10 @@ class Header extends Component {
        <div className="nav-links">
           <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
           <div onClick={() => this.props.history.push('/createworkout')}>CW</div>
-          
-            {/* <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
+
+            <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
             <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
-            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a> */}
+            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
       </div>    
         <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
         

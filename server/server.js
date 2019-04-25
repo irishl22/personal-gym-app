@@ -74,8 +74,9 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json());
 app.use(session({
     secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 100000000 }
 })) 
 
 // Login endpoints
