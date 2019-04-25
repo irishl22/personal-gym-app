@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getData } from "./../../ducks/userReducer";
 import "./Header.css";
+import { Link } from 'react-router'
 require('dotenv').config();
 
 class Header extends Component {
@@ -25,7 +26,7 @@ class Header extends Component {
       <div className="container">
        
        <div className="nav-links">
-            <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a>
+            <Link to='/dashboard'>Home</Link>
             <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
             <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
             <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
