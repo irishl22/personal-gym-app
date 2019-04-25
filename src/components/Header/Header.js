@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getData } from "./../../ducks/userReducer";
 import "./Header.css";
 import { Link } from 'react-router'
+import { withRouter } from 'react-router-dom'
 require('dotenv').config();
 
 class Header extends Component {
@@ -34,13 +35,13 @@ class Header extends Component {
         <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
         
           <div className="links-container">
-            <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a>
-            <hr/>
+            {/* <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a> */}
+            {/* <hr/>
             <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
             <hr/>
             <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
             <hr/>
-            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
+            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a> */}
                 
             <div 
               className="x-menu" 
@@ -78,7 +79,4 @@ function mapStateToProps(reduxStoreState) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  { getData }
-)(Header);
+export default withRouter(connect(mapStateToProps, { getData })(Header));
