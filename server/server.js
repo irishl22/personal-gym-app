@@ -14,11 +14,7 @@ const client = new twilio(accountSid, authToken)
 
 const app = express();
 
-const path = require('path'); // Usually moved to the start of file
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+const path = require('path'); // Usually moved to the start of filen
 
 app.use( express.static( `${__dirname}/../build` ) );
 
