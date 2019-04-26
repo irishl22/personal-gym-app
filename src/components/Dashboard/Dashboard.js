@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getData } from './../../ducks/userReducer'
 import { getWorkouts, getTodaysWorkout, createWorkout, deleteWorkout, updateWorkout } from './../../ducks/workoutReducer'
 import Header from './../Header/Header'
+import HeaderUser from './../Header/HeaderUser'
 import DisplayWorkouts from './../DisplayWorkouts/DisplayWorkouts'
 import DisplayToday from './../DisplayToday/DisplayToday'
 import './Dashboard.css'
@@ -73,7 +74,8 @@ sendText = () => {
 
 render() {
   const { text } = this.state
-    return (
+  
+    return this.props.user.isAdmin ? (
       <div className="main-container">
         <Header />            
         <div className="create-body">
@@ -125,6 +127,7 @@ render() {
               editing={this.state.editing} 
               style={this.state.style}
               time={this.state.time}
+              isAdmin={this.props.user.isAdmin}
               handleEditClick={this.handleEditClick} 
               deleteWorkout={this.props.deleteWorkout}
               updateWorkout={this.props.updateWorkout}
@@ -132,6 +135,8 @@ render() {
               handleCheckBox={this.handleCheckBox}
               handleChange={this.handleChange}
               />})}
+              <div className="todays-buttons">
+      </div>
             </div>
 
             <div className="text-message">
@@ -144,6 +149,27 @@ render() {
 
         </div>
 
+      </div>
+    ) : (
+      <div className="main-container">
+        <HeaderUser />            
+            <div className="todays-container-user">
+            <h1>Todays Workout</h1>
+            {this.props.workouts.todaysWorkout.map((workout, i) => {
+              return <DisplayToday 
+              key={workout.workout_id} 
+              workout={workout} 
+              editing={this.state.editing} 
+              style={this.state.style}
+              time={this.state.time}
+              handleEditClick={this.handleEditClick} 
+              deleteWorkout={this.props.deleteWorkout}
+              updateWorkout={this.props.updateWorkout}
+              handleUpdate={this.handleUpdate}
+              handleCheckBox={this.handleCheckBox}
+              handleChange={this.handleChange}
+              />})}
+            </div>
       </div>
     )
   }

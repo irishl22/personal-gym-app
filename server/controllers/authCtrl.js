@@ -40,7 +40,6 @@ module.exports = {
             url: newAccArr[0].account_company_logo 
         };
         res.status(200).send('it worked')
-        console.log('after send reg')
             
         //     {
         //     message: 'logged in',
@@ -64,7 +63,7 @@ module.exports = {
             first: accountArr[0].account_first_name,
             last: accountArr[0].account_last_name, 
             email: accountArr[0].account_email, 
-            isAdmin: accountArr[0].account_isAdmin, 
+            isAdmin: accountArr[0].account_isadmin, 
             company: accountArr[0].account_company_name, 
             url: accountArr[0].account_company_logo 
         }    
@@ -74,8 +73,8 @@ module.exports = {
         })
     },
     logout(req, res) {
-        req.session.destroy();
-        res.redirect('/')
+        req.session.destroy(() =>res.sendStatus(200));
+        
       },
     userData(req, res) {
         if(req.session.user) res.status(200).send(req.session.user)

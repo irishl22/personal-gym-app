@@ -27,7 +27,6 @@ export default class Login extends Component {
    
     const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
 
-    
     axios
       .get('/api/signs3', {
         params: {
@@ -80,27 +79,24 @@ export default class Login extends Component {
     })
   }
 
+
   async register() {
-    const { first, last, email, password, company, url } = this.state
-    const res = await axios.post('/auth/register', { first, last, email, password, company, url })
+    const { first, last, email, isAdmin, password, company, url } = this.state
+    const res = await axios.post('/auth/register', { first, last, email, isAdmin, password, company, url })
     console.log(res,8888)
-    // if (res.data.loggedIn) this.props.history.push('/dashboard')
-    // else alert('Registration Failed')
+    if (res.data.loggedIn) this.props.history.push('/dashboard')
+    else alert('Registration Failed')
     
 }
 
   async login() {
       const { loginEmail, loginPassword } = this.state
       const res = await axios.post('/auth/login', { loginEmail, loginPassword })
-      console.log(res.data,5555)
       if (res.data.loggedIn) this.props.history.push('/dashboard')
       else alert('Login failed')
   }
 
-
-
   render() {
-    console.log(this.state.url)
     const { url } = this.state
     return (
       <div className="body">
@@ -116,7 +112,7 @@ export default class Login extends Component {
 
             <Input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
 
-            <Input type="text" name="password" placeholder="Create Password" value={this.state.password} onChange={this.handleChange}/>
+            <Input type="password" name="password" placeholder="Create Password" value={this.state.password} onChange={this.handleChange}/>
 
             <Input type="text" name="company" placeholder="Company Name" value={this.state.company} onChange={this.handleChange}/>
 
@@ -160,7 +156,7 @@ export default class Login extends Component {
           <div className="login">
           <h2>Login</h2>
             <Input secondary type="text" name="loginEmail" placeholder="Email" value={this.state.loginEmail} onChange={this.handleChange}/>
-            <Input secondary type="text" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleChange}/>
+            <Input secondary type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleChange}/>
             <Button primary onClick={() => this.login()}>Login</Button>
           </div>
         </div>

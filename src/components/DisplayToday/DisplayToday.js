@@ -4,7 +4,7 @@ import { Button, EDButton } from './../StyledComponents/Buttons'
 import { InputTime } from './../StyledComponents/Inputs'
 
 export default function DisplayToday(props) {
-  return !props.editing ? (
+  return (!props.editing && props.isAdmin) ? (
     <div className="">
     <div className="workout-card">
       <p>Workout Format: {props.workout.workout_style}</p>
@@ -22,7 +22,7 @@ export default function DisplayToday(props) {
         <EDButton onClick={() => props.deleteWorkout(props.workout.workout_id)}>Delete Workout</EDButton>
       </div>
     </div> 
-  ) : (
+  ) : (props.editing && props.isAdmin) ? (
     <div className="editing">
       <label>
                 <input type="radio" name="style" onClick={e => props.handleCheckBox("AMRAP", e.target.checked)} value={props.style}/>
@@ -53,5 +53,18 @@ export default function DisplayToday(props) {
               <Button primary onClick={() => props.updateWorkout(props.style, props.time, props.workout.workout_id)}>Update Workout</Button>
 
     </div>
+  ) : (
+    <div className="">
+      <div className="workout-card">
+        <p>Workout Format: {props.workout.workout_style}</p>
+        <p>Workout Time: {props.workout.workout_time}</p>
+        <p>Exercise 1: {props.workout.name[0]} <span>{props.workout.sets[0]} x {props.workout.reps[0]}</span></p>
+        <p>Exercise 2: {props.workout.name[1]} <span>{props.workout.sets[1]} x {props.workout.reps[1]}</span></p>
+        <p>Exercise 3: {props.workout.name[2]} <span>{props.workout.sets[2]} x {props.workout.reps[2]}</span></p>
+        <p>Exercise 4: {props.workout.name[3]} <span>{props.workout.sets[3]} x {props.workout.reps[3]}</span></p>
+        {/* <p>Exercise 5: {props.workout.name[4]}</p>
+        <p>Exercise 6: {props.workout.name[5]}</p> */}
+      </div>
+    </div> 
   )
 }

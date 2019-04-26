@@ -3,6 +3,7 @@ import axios from 'axios'
 const initialState = {
     first: '',
     last: '',
+    isAdmin: false,
     company: '',
     url: ''
 }
@@ -20,8 +21,8 @@ export function getData() {
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_DATA + '_FULFILLED':
-            const { first, last, company, url } = action.payload
-            return { first, last, company, url } 
+            const { first, last, isAdmin, company, url } = action.payload
+            return { first, last, isAdmin, company, url } 
         default:
             return state;
     }

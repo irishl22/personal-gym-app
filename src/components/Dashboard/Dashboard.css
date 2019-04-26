@@ -43,6 +43,21 @@
     color: #fff;
 }
 
+.todays-container-user {
+    height: 65vh;
+    width: 70%;
+    font-family: 'Abel', sans-serif;
+    border: 2px solid #E2DED3;;
+    border-radius: .5rem;
+    background: rgba(45, 60, 66, 0.8);
+    padding: 3rem 2rem;
+    color: #fff;
+    margin: 4rem 0rem 0rem 14rem;
+}
+.todays-container-user h1 {
+    margin-bottom: 2rem;
+}
+
 .text-message {
     height: 12.4vh;
     width: 100%;
@@ -84,8 +99,6 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Abel', sans-serif;
-    
-    /* margin-top: 25rem; */
 }
 
 .create-headline {
@@ -135,7 +148,6 @@
    justify-content: center;
    align-items: center;
 }
-
 
 /**** DISPLAY WORKOUTS STYLING ****/
 .display-container h1,
@@ -192,7 +204,7 @@
     flex-direction: column-reverse;
     padding: 3rem 0rem; 
     align-items: center;
-   height: 80rem;
+    height: 80rem;
 }
 
 .display-container {
