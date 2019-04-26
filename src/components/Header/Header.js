@@ -28,9 +28,8 @@ class Header extends Component {
        
        <div className="nav-links">
           <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
-          <div onClick={() => this.props.history.push('/createworkout')}>Create Workout</div>
           <div onClick={() => this.props.history.push('/createworkout')}>Edit Workout</div>
-          <div onClick={() => this.props.history.push('/createworkout')}>Add Exercise</div>
+          <div onClick={() => this.props.history.push('/addmove')}>Add Exercise</div>
           <div>
             <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
           </div>
@@ -39,10 +38,11 @@ class Header extends Component {
         
           <div className="links-container">
             <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
-            <div onClick={() => this.props.history.push('/createworkout')}>Create Workout</div>
             <div onClick={() => this.props.history.push('/createworkout')}>Edit Workout</div>
-            <div onClick={() => this.props.history.push('/createworkout')}>Add Exercise</div>
-            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
+            <div onClick={() => this.props.history.push('/addmove')}>Add Exercise</div>
+            <div>
+              <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
+            </div>
                 
             <div 
               className="x-menu" 
