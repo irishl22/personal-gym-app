@@ -8,7 +8,6 @@ const movementsCtrl = require('./controllers/movementsCtrl')
 const aws = require('aws-sdk');
 const cors = require('cors');
 const twilio = require('twilio')
-const auth = require('./../server/middleware/authMiddleware')
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, accountSid, authToken, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION } = process.env;
 const client = new twilio(accountSid, authToken)
@@ -88,7 +87,7 @@ app.get('/auth/user-data', authCtrl.userData)
 app.get('/logout', authCtrl.logout)
 
 // Dashboard endpoints
-app.get('/api/user-workouts', auth.usersOnly, auth.adminsOnly, workoutCtrl.readWorkouts)
+app.get('/api/user-workouts', workoutCtrl.readWorkouts)
 app.get('/api/todays-workout', workoutCtrl.getTodaysWorkout)
 app.post('/api/user-workout', workoutCtrl.createWorkout)
 app.put('/api/user-workout/:id', workoutCtrl.updateWorkout)
@@ -98,6 +97,4 @@ app.delete('/api/user-workout/:id', workoutCtrl.deleteWorkout)
 app.get('/api/movements', movementsCtrl.readMovements)
 app.post('/api/insert-movement', movementsCtrl.insertMove)
 app.post('/api/add-movement', movementsCtrl.addMovement)
-
-
 

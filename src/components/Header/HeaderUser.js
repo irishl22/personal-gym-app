@@ -30,15 +30,13 @@ class HeaderUser extends Component {
       <div className="container">
        
        <div className="nav-links">
-          <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
+
           <div onClick={this.logout}>Logout</div>
       </div>    
         <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
         
           <div className="links-container">
-            <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
-            <div onClick={() => this.props.history.push('/createworkout')}>Edit Workout</div>
-            <div onClick={() => this.props.history.push('/addmove')}>Add Exercise</div> */}
+          
             <div onClick={this.logout}>Logout</div>
                 
             <div 

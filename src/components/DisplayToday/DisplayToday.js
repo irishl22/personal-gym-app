@@ -64,7 +64,17 @@ export default function DisplayToday(props) {
         <p>Exercise 4: {props.workout.name[3]} <span>{props.workout.sets[3]} x {props.workout.reps[3]}</span></p>
         {/* <p>Exercise 5: {props.workout.name[4]}</p>
         <p>Exercise 6: {props.workout.name[5]}</p> */}
+
       </div>
+        <div className="rate-workout">
+          <h3>Rate Workout!</h3>
+        <span className="first-star">&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9734;</span>
+       
+        </div>
     </div> 
   )
 }
