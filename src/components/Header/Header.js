@@ -28,22 +28,21 @@ class Header extends Component {
        
        <div className="nav-links">
           <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
-          <div onClick={() => this.props.history.push('/createworkout')}>CW</div>
-
-            <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
-            <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
+          <div onClick={() => this.props.history.push('/createworkout')}>Create Workout</div>
+          <div onClick={() => this.props.history.push('/createworkout')}>Edit Workout</div>
+          <div onClick={() => this.props.history.push('/createworkout')}>Add Exercise</div>
+          <div>
             <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
+          </div>
       </div>    
         <div className={this.state.showMenu ? 'menu slide' : 'menu'}>
         
           <div className="links-container">
-            {/* <a href={`${process.env.REACT_APP_FRONT}/#/dashboard`}>Home</a> */}
-            {/* <hr/>
-            <a href={`${process.env.REACT_APP_FRONT}/#/createworkout`}>Edit Workout</a>
-            <hr/>
-            <a href={`${process.env.REACT_APP_FRONT}/#/addmove`}>Add Exercise</a>
-            <hr/>
-            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a> */}
+            <div onClick={() => this.props.history.push('/dashboard')}>Home</div>
+            <div onClick={() => this.props.history.push('/createworkout')}>Create Workout</div>
+            <div onClick={() => this.props.history.push('/createworkout')}>Edit Workout</div>
+            <div onClick={() => this.props.history.push('/createworkout')}>Add Exercise</div>
+            <a href={`${process.env.REACT_APP_BACK}/logout`}>Logout</a>
                 
             <div 
               className="x-menu" 
