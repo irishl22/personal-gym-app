@@ -68,13 +68,12 @@ sendText = () => {
   const { text } = this.state 
   fetch(`${process.env.REACT_APP_BACK}/send-text?recipient=+18582499201&textmessage=${text}`)
   .catch(err => console.error(err))
-  
+  this.setState({ text: ''})
 }
 
 
 render() {
   const { text } = this.state
-  
     return this.props.user.isAdmin ? (
       <div className="main-container">
         <Header />            
@@ -151,7 +150,7 @@ render() {
 
       </div>
     ) : (
-      <div className="main-container">
+      <div className="main-container-user">
         <HeaderUser />            
             <div className="todays-container-user">
             <h1>Todays Workout</h1>

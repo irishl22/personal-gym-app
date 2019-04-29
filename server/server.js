@@ -83,6 +83,7 @@ app.use(session({
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/getAccounts', authCtrl.read)
+app.get('/auth/getMembers', authCtrl.readMembers)
 app.get('/auth/user-data', authCtrl.userData)
 app.get('/logout', authCtrl.logout)
 

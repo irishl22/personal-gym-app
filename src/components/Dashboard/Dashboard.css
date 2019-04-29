@@ -17,6 +17,14 @@
     background-size: cover;
     background-repeat: no-repeat; 
 }
+.main-container-user {
+    position: relative;
+    height: 70rem;
+    background-image: url('victor-freitas-604847-unsplash.jpg');
+    background-image: linear-gradient(rgba(2, 24, 35, 0.5), rgba(2, 24, 35, 0.5)), url('victor-freitas-604847-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
 
 .right-col {
     width: 50%;
@@ -44,7 +52,7 @@
 }
 
 .todays-container-user {
-    height: 90vh;
+    height: 35rem;
     width: 70%;
     font-family: 'Abel', sans-serif;
     border: 2px solid #E2DED3;;
@@ -69,6 +77,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text-message button:hover {
+    background: rgb(138, 137, 137);
 }
 
 .create-body {

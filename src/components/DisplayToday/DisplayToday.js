@@ -68,12 +68,11 @@ export default function DisplayToday(props) {
       </div>
         <div className="rate-workout">
           <h3>Rate Workout!</h3>
-        <span className="first-star">&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9734;</span>
-       
+          <span className="first-star">&#9734;</span>
+          <span>&#9734;</span>
+          <span>&#9734;</span>
+          <span>&#9734;</span>
+          <span>&#9734;</span>
         </div>
     </div> 
   )

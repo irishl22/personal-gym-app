@@ -3,19 +3,26 @@ const bcrypt = require('bcryptjs')
 module.exports = {
     read: (req, res, next) => {
         const db = req.app.get('db')
-
-        db.find_accounts()
+        
+        db.find_members()
         .then(accounts => {
             res.status(200).send(accounts)
         }).catch(err => {
             res.status(500).send('controller', err)
         })
+        
+    }, 
+    readMembers: async (req, res, next) => {
+        const db = req.app.get('db')
+        let response = await
+        db.get_members()
+        return res.status(200).send(response)
+
     },
     register: async (req, res) => {
         const { first, last, email, password, isAdmin, company, url } = req.body
         const db = req.app.get('db');
         const accountArr = await db.find_account_by_email([email])
-        console.log() 
         if(accountArr[0]) {
             return res.status(200).send({message: 'Email already in use'})
         }

@@ -5,7 +5,7 @@ const initialState = {
     last: '',
     isAdmin: false,
     company: '',
-    url: ''
+    url: '',
 }
 
 const GET_DATA = 'GET_DATA'
