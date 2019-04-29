@@ -130,8 +130,7 @@ handleSelect = (e) => {
         move.move_equip_1 === this.state.equip ||
         move.move_equip_2 === this.state.equip ||
         move.move_equip_3 === this.state.equip ||
-        move.move_equip_4 === this.state.equip
-        )
+        move.move_equip_4 === this.state.equip)
       .map(movement => {
         return (
           <MoveButton key={movement.move_id} value={movement.move_id} name={movement.move_name} onClick={this.handleSelect}>
@@ -269,7 +268,6 @@ handleSelect = (e) => {
             
           </div>
       </div>  
-        
       </div>
       )
     }
