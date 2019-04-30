@@ -24,7 +24,6 @@ class HeaderUser extends Component {
   }
   
   render() {
-    console.log(this.props.user)
     const { first, last, url } = this.props.user;
     return (
       <div className="container">

@@ -51,7 +51,6 @@ class Header extends Component {
             className="company-logo"
             src={url}
             alt="Company Logo"
-            style={{ width: 50 }}
           />
           <h3>
             Welcome, {first} {last}

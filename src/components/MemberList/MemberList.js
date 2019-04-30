@@ -20,9 +20,9 @@ class MemberList extends Component {
   }
   
   render() {
-      let members = this.state.members.map(member => {
+      let members = this.state.members.map((member , i) => {
           return (
-              <div className="member-card">
+              <div className="member-card" key={i}>
                 <div className="profile-info">
                     <h5>Name: {member.account_first_name} {member.account_last_name}</h5>
                     <h5>Email: {member.account_email}</h5>
@@ -30,13 +30,16 @@ class MemberList extends Component {
                 <img src={member.account_company_logo} alt="profile" />
               </div>
           )
-      })
+        })
+        
 
     return (
       <div className="members-container">
         <Header />
         <h1>Gym Members</h1>
-        {members}
+        <div className="members">
+          {members}
+        </div>
       </div>
     );
   }

@@ -114,7 +114,7 @@ export default class Login extends Component {
 
             <Input type="password" name="password" placeholder="Create Password" value={this.state.password} onChange={this.handleChange}/>
 
-            <Input type="text" name="company" placeholder="Company Name" value={this.state.company} onChange={this.handleChange}/>
+            <Input type="text" name="company" placeholder="Gym Name" value={this.state.company} onChange={this.handleChange}/>
 
             {/* <Input type="text" name="logo" placeholder="Company Logo" value={this.state.logo} onChange={this.handleChange}/> */}
 
@@ -144,7 +144,7 @@ export default class Login extends Component {
           <section>
             <div {...getRootProps()}>
               <input {...getInputProps()}/>
-              <UploadButton>Upload Logo</UploadButton>
+              <UploadButton>Upload Image</UploadButton>
             </div>
           </section>
     )}
