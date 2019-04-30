@@ -21,8 +21,8 @@ class CreateWorkout extends Component {
       location: '',
       muscle: '',
       movesList: [],
-      sets: 0,
-      reps: 0
+      sets: '',
+      reps: ''
     }
   }
 
@@ -75,8 +75,8 @@ handleSelect = (e) => {
     const { move_id, sets, reps } = this.state
     axios.post('/api/insert-movement', { workout_id, move_id, sets, reps });
     this.setState({
-      sets: 0,
-      reps: 0
+      sets: '',
+      reps: ''
     })
   }
 
