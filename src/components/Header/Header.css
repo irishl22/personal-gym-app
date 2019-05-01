@@ -15,7 +15,8 @@
 }
 
 .company-logo {
-  width: 75px;
+  width: 60px;
+  margin-right: .4rem;
 }
 
 
@@ -70,7 +71,6 @@
 }
 
 .container h3 {
-    padding-right: .3rem;
     font-family: 'Open Sans Condensed', sans-serif;
     color: rgb(240, 239, 236);  
 }
@@ -132,7 +132,7 @@ h4 {
 
   .name-logo {
     height: 5rem;
-    width: 74%;
+    width: 75%;
     display: flex;
     justify-content: space-around;
     align-items: center;

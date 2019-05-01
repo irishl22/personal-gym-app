@@ -102,6 +102,12 @@ h4 {
     height: 100%;
 }
 
+.moves-container button:hover {
+    background-image: url('kb-personal.jpg');
+    background-size: cover;
+    color: transparent;
+}
+
 .workout-style-filter input {
     margin: .13rem .25rem;
 }
